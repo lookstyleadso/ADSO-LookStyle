@@ -4,8 +4,8 @@ import Services from "@/app/home/Services";
 import Guide from "@/app/home/Guide";
 import Contest from "@/app/home/Contest";
 import Adaptability from "@/app/home/Adaptability";
-import BackToComp from "@/app/home/BackTopComp";
-import Footer from "@/app/home/Footer";
+import BackToComp from "@/components/BackTopComp";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
