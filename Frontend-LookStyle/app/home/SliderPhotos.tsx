@@ -75,7 +75,7 @@ const SliderPhotos = () => {
         {photo.map((data) => (
           <div
             key={data.id}
-            className="h-[400px] flex flex-col justify-between px-7 py-6"
+            className="h-[350px] flex flex-col justify-between px-7 py-6"
           >
             <Image
               src={data.photos[0]}
