@@ -3,8 +3,8 @@ export const NAV_LINKS = [
   { href: "/", key: "home", label: "Inicio" },
   { href: "/", key: "services", label: "Servicios" },
   { href: "/contest", key: "contest", label: "Concurso" },
-  { href: "/aboutus", key: "aboutus ", label: "Sobre nosotros" },
-  { href: "/support", key: "support ", label: "Soporte" },
+  { href: "/barbershops", key: "barbershops", label: "Barberias" },
+  { href: "/aboutus", key: "aboutus", label: "Sobre nosotros" },
   { href: "/auth/login", key: "login", label: "Inciar Sesión" },
 ];
 
@@ -41,7 +41,8 @@ export const GUIDE_INFO = [
   {
     id: 1,
     name: "Name",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
   },
   {
     id: 2,
@@ -52,12 +53,14 @@ export const GUIDE_INFO = [
   {
     id: 3,
     name: "Name",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
   },
   {
     id: 4,
     name: "Name",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
   },
   {
     id: 5,
@@ -119,6 +122,7 @@ export const FOOTER_CONTACT_INFO = {
   links: [
     { label: "Telefono", value: "3000000000" },
     { label: "Correo", value: "pformativoadso@gmail.com" },
+    { label: "Otros", value: "Soporte" },
   ],
 };
 
