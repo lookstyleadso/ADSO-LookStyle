@@ -1,11 +1,11 @@
-import NavBar from "@/app/homepage/NavBar";
-import Hero from "@/app/homepage/Hero";
-import Services from "@/app/homepage/Services";
-import Guide from "@/app/homepage/Guide";
-import Contest from "@/app/homepage/Contest";
-import Adaptability from "@/app/homepage/Adaptability";
-import BackToComp from "@/app/homepage/BackTopComp";
-import Footer from "@/app/homepage/Footer";
+import NavBar from "@/app/home/NavBar";
+import Hero from "@/app/home/Hero";
+import Services from "@/app/home/Services";
+import Guide from "@/app/home/Guide";
+import Contest from "@/app/home/Contest";
+import Adaptability from "@/app/home/Adaptability";
+import BackToComp from "@/app/home/BackTopComp";
+import Footer from "@/app/home/Footer";
 
 export default function Home() {
   return (
