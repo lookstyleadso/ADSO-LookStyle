@@ -2,8 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "project-lookstyle",
-  description: "UI/UX app for project",
+  title: "Homepage | LookStyle",
+  description: "Main page of the project",
 };
 
 export default function RootLayout({
