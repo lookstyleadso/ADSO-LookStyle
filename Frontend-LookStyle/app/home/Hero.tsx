@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <section className="max-container paddin-container px-4 pb-24 pt-44 bg-darkcolor-dc mx-auto" id="hero">
+    <section className="max-container padding-container px-4 pb-24 pt-44 bg-darkcolor-dc mx-auto" id="hero">
       <div className="text-white text-center">
         <h1 className="text-6xl uppercase font-bold lg:text-7x1 leading-snug mb-5">
           Refina tu estilo y elegancia
