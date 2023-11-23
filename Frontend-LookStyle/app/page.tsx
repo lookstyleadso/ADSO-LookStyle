@@ -1,4 +1,4 @@
-import NavBar from "@/app/home/NavBar";
+import NavBar from "@/components/NavBar";
 import Hero from "@/app/home/Hero";
 import Services from "@/app/home/Services";
 import Guide from "@/app/home/Guide";

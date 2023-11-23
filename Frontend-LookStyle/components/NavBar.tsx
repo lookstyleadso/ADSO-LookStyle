@@ -3,7 +3,7 @@ import { NAV_LINKS } from "@/constants";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../../components/Button";
+import Button from "./Button";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
