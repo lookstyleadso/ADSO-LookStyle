@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="max-container padding-container px-4 pb-24 pt-44 bg-darkcolor-dc mx-auto" id="hero">
       <div className="text-white text-center">
-        <h1 className="text-6xl uppercase font-bold lg:text-7x1 leading-snug mb-5">
+        <h1 className="text-4xl xs:text-6xl uppercase font-bold lg:text-7x1 leading-snug mb-5">
           Refina tu estilo y elegancia
         </h1>
         <p className="regular-18 text-gray-100 lg:w-3/5 mx-auto mb-5 font-regular">
