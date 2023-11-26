@@ -1,11 +1,13 @@
 import NavBar from "@/components/NavBar";
-import SearchList from "./List";
+import List from "./List";
+import Footer from "@/components/Footer";
 
 export default function BarbershopsPage() {
   return (
     <>
       <NavBar />
-      <SearchList />
+      <List />
+      <Footer />
     </>
   );
 }
