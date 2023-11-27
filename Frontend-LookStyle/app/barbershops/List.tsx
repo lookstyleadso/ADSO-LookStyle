@@ -18,8 +18,6 @@ const List = () => {
   const [data_barbershop, setBarbershop] = useState<BarbershopProps[]>([]);
   const [Loading, setLoading] = useState("Cargando");
   const [search, setSearch] = useState("");
-  const [selectedBarbershop, setSelectedBarbershop] =
-    useState<BarbershopProps | null>(null);
   const url = "https://adso-lookstyle.onrender.com/api/v1/barbershops";
 
   useEffect(() => {
@@ -43,13 +41,13 @@ const List = () => {
   const results = !search
     ? data_barbershop
     : data_barbershop.filter((dataname) =>
-        dataname.barbershop_name
-          .toLowerCase()
-          .includes(search.toLocaleLowerCase())
-      );
+      dataname.barbershop_name
+        .toLowerCase()
+        .includes(search.toLocaleLowerCase())
+    );
 
   return (
-    <div className="max-container padding-container py-32">
+    <div className="max-container padding-container py-32 2xl:px-10">
       <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -98,7 +96,7 @@ const List = () => {
                       {barbershop.barbershop_name}
                     </h3>
                     {barbershop.state.toUpperCase() === "ACTIVO" ||
-                    barbershop.state.toUpperCase() === "ABIERTO" ? (
+                      barbershop.state.toUpperCase() === "ABIERTO" ? (
                       <div className="mt-1 flex items-center gap-x-1.5">
                         <div className="flex-none rounded-full p-1 bg-emerald-500/20">
                           <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
@@ -118,8 +116,14 @@ const List = () => {
                       </div>
                     )}
                   </div>
-                  <div className="justify-end">
-                    
+                  <div className="flex justify-center items-center h-full">
+                    <Link href={`/barbershops/schedule/${barbershop.id}`} className="h-full">
+                      <ButtonTwo
+                        type="button"
+                        title="Agendar"
+                        variant="btn_primary_gradient"
+                      />
+                    </Link>
                   </div>
                 </div>
               </div>
