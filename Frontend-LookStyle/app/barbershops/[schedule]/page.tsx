@@ -2,7 +2,7 @@ import React from 'react'
 import FormSchedule from './FormSchedule'
 import NavBar from '@/components/NavBar'
 
-const page = () => {
+const  page = () => {
   return (
     <>
       <NavBar />

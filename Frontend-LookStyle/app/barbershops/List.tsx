@@ -117,7 +117,7 @@ const List = () => {
                     )}
                   </div>
                   <div className="flex justify-center items-center h-full">
-                    <Link href={`/barbershops/schedule/${barbershop.id}`} className="h-full">
+                    <Link href={`/schedule/${barbershop.id}`} className="h-full">
                       <ButtonTwo
                         type="button"
                         title="Agendar"
