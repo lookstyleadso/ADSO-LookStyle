@@ -1,7 +1,6 @@
 "use client";
-import ButtonTwo from "@/components/ButtonTwo";
+import ModalComp from "@/components/ModalComp";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 type BarbershopProps = {
@@ -20,11 +19,13 @@ const List = () => {
   const [search, setSearch] = useState("");
   const [selectedBarbershop, setSelectedBarbershop] =
     useState<BarbershopProps | null>(null);
-  const url = "https://adso-lookstyle.onrender.com/api/v1/barbershops";
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(url);
+      const response = await fetch(
+        "https://adso-lookstyle.onrender.com/api/v1/barbershops"
+      );
       const data = await response.json();
       if (response.status == 200) {
         setLoading("");
@@ -48,36 +49,39 @@ const List = () => {
           .includes(search.toLocaleLowerCase())
       );
 
+  // Funcion para abrir
+  const handleBarbershopClick = (barbershop: BarbershopProps) => {
+    setSelectedBarbershop(barbershop);
+    setOpen(true);
+  };
+
+  // Funcion para cerrar el Modal
+  const handleCloseModal = () => {
+    setSelectedBarbershop(null);
+    setOpen(false);
+  };
+
   return (
     <div className="max-container padding-container py-32">
-      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Sección de barberías
-          </h2>
-          <p className="regular-18 text-gray-600 mt-6 leading-8 ">
-            Bienvenido aqui vas a encotrar una lista de barberias que te pueden
-            interesar, tambien podras buscarlas por nombre.
-          </p>
-          <div className="mt-6 flex gap-2 justify-start">
-            <input
-              value={search}
-              onChange={searcher}
-              type="text"
-              placeholder="Buscar"
-              className="block w-full rounded-md border-0 px-3 py-2.5 focus:outline-none focus:border-secundarycolor-sc  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primarycolor-pc sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
+      <div className="mb-10 flex justify-center">
+        <input
+          value={search}
+          onChange={searcher}
+          type="text"
+          placeholder="Buscar"
+          className="block sm:w-3/5 w-4/5 rounded-md border-0 px-3 py-2.5 focus:outline-none focus:border-secundarycolor-sc  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primarycolor-pc sm:text-sm sm:leading-6"
+        />
+      </div>
+      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20  lg:px-8 xl:grid-cols-2 bg-red-300">
         <ul
           role="list"
-          className="grid gap-x-8 gap-y-8 sm:grid-cols-2 sm:gap-y-8 xl:col-span-2"
+          className="grid gap-x-8 gap-y-8 md:grid-cols-3 sm:gap-y-8 xl:col-span-2 bg-green-300"
         >
           {results.map((barbershop) => (
             <li
               key={barbershop.id}
-              className="p-5 rounded-2xl hover:bg-hover-hv"
+              className="p-5 rounded-2xl hover:bg-hover-hv cursor-pointer"
+              onClick={() => handleBarbershopClick(barbershop)}
             >
               <div className="flex items-center gap-x-5">
                 {barbershop.profile_photo &&
@@ -118,14 +122,20 @@ const List = () => {
                       </div>
                     )}
                   </div>
-                  <div className="justify-end">
-                    
-                  </div>
+                  <div className="justify-end"></div>
                 </div>
               </div>
             </li>
           ))}
         </ul>
+
+        {selectedBarbershop && (
+          <ModalComp
+            barbershop={selectedBarbershop}
+            onClose={handleCloseModal}
+            open={open} // Pasa el estado 'open' al componente ModalComp
+          />
+        )}
       </div>
     </div>
   );
