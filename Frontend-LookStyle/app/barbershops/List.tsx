@@ -122,7 +122,6 @@ const List = () => {
                       </div>
                     )}
                   </div>
-                  <div className="justify-end"></div>
                 </div>
               </div>
             </li>
@@ -133,7 +132,7 @@ const List = () => {
           <ModalComp
             barbershop={selectedBarbershop}
             onClose={handleCloseModal}
-            open={open} // Pasa el estado 'open' al componente ModalComp
+            open={open}
           />
         )}
       </div>
