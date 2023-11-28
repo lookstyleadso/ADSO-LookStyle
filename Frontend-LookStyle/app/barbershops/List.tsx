@@ -44,10 +44,10 @@ const List = () => {
   const results = !search
     ? data_barbershop
     : data_barbershop.filter((dataname) =>
-        dataname.barbershop_name
-          .toLowerCase()
-          .includes(search.toLocaleLowerCase())
-      );
+      dataname.barbershop_name
+        .toLowerCase()
+        .includes(search.toLocaleLowerCase())
+    );
 
   // Funcion para abrir
   const handleBarbershopClick = (barbershop: BarbershopProps) => {
@@ -63,7 +63,7 @@ const List = () => {
 
   return (
     <div className="max-container padding-container py-32">
-      <div className="mb-10 flex justify-center">
+      <div className="mb-16 flex justify-center">
         <input
           value={search}
           onChange={searcher}
@@ -72,10 +72,10 @@ const List = () => {
           className="block sm:w-3/5 w-4/5 rounded-md border-0 px-3 py-2.5 focus:outline-none focus:border-secundarycolor-sc  text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primarycolor-pc sm:text-sm sm:leading-6"
         />
       </div>
-      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20  lg:px-8 xl:grid-cols-2 bg-red-300">
+      <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20  lg:px-8 xl:grid-cols-2">
         <ul
           role="list"
-          className="grid gap-x-8 gap-y-8 md:grid-cols-3 sm:gap-y-8 xl:col-span-2 bg-green-300"
+          className="grid gap-x-8 gap-y-8 md:grid-cols-3 sm:gap-y-8 xl:col-span-2"
         >
           {results.map((barbershop) => (
             <li
@@ -102,7 +102,7 @@ const List = () => {
                       {barbershop.barbershop_name}
                     </h3>
                     {barbershop.state.toUpperCase() === "ACTIVO" ||
-                    barbershop.state.toUpperCase() === "ABIERTO" ? (
+                      barbershop.state.toUpperCase() === "ABIERTO" ? (
                       <div className="mt-1 flex items-center gap-x-1.5">
                         <div className="flex-none rounded-full p-1 bg-emerald-500/20">
                           <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />

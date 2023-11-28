@@ -13,12 +13,15 @@ module.exports = {
         },
         primarycolor: {
           pc: "#1363df",
+          hover: "#1A5BBF"
         },
         secundarycolor: {
           sc: "#47b5ff",
+          hover: "#0D629A"
         },
         tertiarycolor: {
           tc: "#f33535",
+          hover: "#C82626"
         },
         graycolor: {
           gc: "#70727c",
