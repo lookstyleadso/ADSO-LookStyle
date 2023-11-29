@@ -1,9 +1,10 @@
 import React from 'react'
+import UserRegister from '@/components/Forms/UserRegister'
 
-const page = () => {
+export default function registerPage() {
   return (
-    <div>Register</div>
+    <div>
+        <UserRegister/>
+    </div>
   )
 }
-
-export default page
