@@ -84,150 +84,175 @@ function formBarbershop() {
                         </div>
                         <h2 className="text-2xl font-semibold text-center mb-4">Registra tu Barberia</h2>
                         <p className="text-gray-600 text-center mb-6">Ingresa los datos de tu barberia para registrarla.</p>
-                        
+
                         <form onSubmit={controladorDelEnvio}>
-                            <div className="mb-4">
-                                <label htmlFor="Name" className="block text-gray-700 text-sm font-semibold mb-2"
+
+                            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                                <div className="mb-4">
+                                    <label htmlFor="Name" className="block text-gray-700 text-sm font-semibold mb-2"
+                                    >
+                                        Barbershop Name *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="barbershop_name"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        placeholder="Nombre Barberia"
+
+                                        value={barbershop_name}
+                                        onChange={(e) => setBarberName(e.target.value)}
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label htmlFor="charge_name" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Charge Name *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="charge_name"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+
+                                        placeholder="Nombre del encargado"
+                                        value={charge_name}
+                                        onChange={(e) => setCharge_name(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className="mb-4">
+                                    <label htmlFor="email" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Email *
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+
+                                        placeholder="barber@gmail.com"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className="mb-6">
+                                    <label htmlFor="password" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Password *
+                                    </label>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        required
+                                        placeholder="Ingresa una contraseña segura"
+                                        value={email}
+                                        onChange={(e) => setState(e.target.value)}
+                                    />
+
+                                </div>
+
+                                <div className="mb-4">
+                                    <label htmlFor="phone_number" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Phone Number *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="phone_number"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        required
+                                        placeholder="Phone Number"
+                                        value={phone_number}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                    />
+                                </div>
+
+
+                                <div className="mb-6">
+                                    <label htmlFor="location" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Location *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="location"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        required
+                                        placeholder="Escribe Direccion"
+                                        value={location}
+                                        onChange={(e) => setLocation(e.target.value)}
+                                    />
+
+                                </div>
+
+                                
+
+                                <div className="mb-6">
+                                    <label htmlFor="social_networks" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        social_networks *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="social_networks"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        required
+                                        placeholder="Facebook, Instagram, Twiter"
+                                        value={social_networks}
+                                        onChange={(e) => setRedes(e.target.value)}
+                                    />
+
+                                </div>
+
+                                <div className="mb-6">
+                                    <label htmlFor="state" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        State *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="state"
+                                        className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                                        required
+                                        placeholder="Facebook, Instagram, Twiter"
+                                        value={state}
+                                        onChange={(e) => setState(e.target.value)}
+                                    />
+
+                                </div>
+                                </div>
+
+                                <div className="mb-6">
+                                    <label htmlFor="information" className="block text-gray-700 text-sm font-semibold mb-2">
+                                        Information *
+                                    </label>
+                                    <textarea id="support"  className="border rounded px-4 py-2 w-full h-24"
+                                        type="text"
+                                        name="information"
+                                        
+                                        required
+                                        placeholder="Escribe Informacion Adicional de tu barberia"
+                                        value={information}
+                                        onChange={(e) => setInfo(e.target.value)}
+                                        />
+                                      
+
+                                </div>
+
+                                
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
                                 >
-                                    Barbershop Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="barbershop_name"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    placeholder="Nombre Barberia"
+                                    Registrar Barberia
+                                </button>
+                                <p className="text-gray-600 text-xs text-center mt-4">
+                                    Al registrar tu barberia, acepta los terminos y condiciones de Lookstyle.
+                                    <a href="#" className="text-blue-500 hover:underline">Terms and Conditions</a>.
+                                </p>
+                           
 
-                                    value={barbershop_name}
-                                    onChange={(e) => setBarberName(e.target.value)}
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <label htmlFor="charge_name" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Charge Name *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="charge_name"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-
-                                    placeholder="Nombre del encargado"
-                                    value={charge_name}
-                                    onChange={(e) => setCharge_name(e.target.value)}
-                                />
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Email *
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-
-                                    placeholder="barber@gmail.com"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-
-                            <div className="mb-4">
-                                <label htmlFor="phone_number" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Phone Number *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="phone_number"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    required
-                                    placeholder="Phone Number"
-                                    value={phone_number}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                />
-                            </div>
-
-
-                            <div className="mb-6">
-                                <label htmlFor="location" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Location *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="location"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    required
-                                    placeholder="Escribe Direccion"
-                                    value={location}
-                                    onChange={(e) => setLocation(e.target.value)}
-                                />
-
-                            </div>
-
-                            <div className="mb-6">
-                                <label htmlFor="information" className="block text-gray-700 text-sm font-semibold mb-2">
-                                    Information *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="information"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    required
-                                    placeholder="Escribe Informacion Adicional"
-                                    value={information}
-                                    onChange={(e) => setInfo(e.target.value)}
-                                />
-
-                            </div>
-
-                            <div className="mb-6">
-                                <label htmlFor="social_networks" className="block text-gray-700 text-sm font-semibold mb-2">
-                                social_networks *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="social_networks"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    required
-                                    placeholder="Facebook, Instagram, Twiter"
-                                    value={social_networks}
-                                    onChange={(e) => setRedes(e.target.value)}
-                                />
-
-                            </div>
-
-                            <div className="mb-6">
-                                <label htmlFor="state" className="block text-gray-700 text-sm font-semibold mb-2">
-                                State *
-                                </label>
-                                <input
-                                    type="text"
-                                    name="state"
-                                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
-                                    required
-                                    placeholder="Facebook, Instagram, Twiter"
-                                    value={state}
-                                    onChange={(e) => setState(e.target.value)}
-                                />
-
-                            </div>
-
-                        
-
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
-                            >
-                                Registrar Barberia
-                            </button>
-                            <p className="text-gray-600 text-xs text-center mt-4">
-                                Al registrar tu barberia, acepta los terminos y condiciones de Lookstyle.
-                                <a href="#" className="text-blue-500 hover:underline">Terms and Conditions</a>.
-                            </p>
+                            
                         </form>
 
-                        
-                       
-                        <div>
+
+
+                        {/* <div>
 
                         <br/>
                         <br/>
@@ -256,7 +281,7 @@ function formBarbershop() {
                                 <p>No hay datos de usuario disponibles</p>
                             )
                             }
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
