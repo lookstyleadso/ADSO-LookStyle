@@ -3,6 +3,8 @@ import React, { Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
 
+
+
 type BarbershopProps = {
   id?: number;
   profile_photo: [];
@@ -77,7 +79,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primarycolor-pc text-base font-medium hover:bg-primarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={onClose}
                   >
-                    <Link href="/">
+                    <Link href={`/barbershops/${barbershop.id}`}>
                       Agendar
                     </Link>
                   </button>
