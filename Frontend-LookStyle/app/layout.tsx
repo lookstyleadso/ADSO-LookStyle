@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Homepage | LookStyle",
@@ -14,8 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="relative overflow-hidden">{children}</main>
+        <Providers>
+          <main className="relative overflow-hidden">{children}</main>
+        </Providers>
       </body>
     </html>
   );
 }
+
