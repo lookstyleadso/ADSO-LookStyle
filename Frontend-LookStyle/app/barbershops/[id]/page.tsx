@@ -1,9 +1,12 @@
 import React from 'react'
 import { useParams } from 'next/navigation'
+import Profile from './Profile'
 
 const page = () => {
     return (
-        <div>pageid</div>
+        <>
+            <Profile />
+        </>
     )
 }
 
