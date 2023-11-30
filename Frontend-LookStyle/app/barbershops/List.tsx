@@ -80,7 +80,7 @@ const List = () => {
           {results.map((barbershop) => (
             <li
               key={barbershop.id}
-              className="p-5 rounded-2xl hover:bg-hover-hv cursor-pointer"
+              className="p-5 rounded-2xl border shadow-lg hover:bg-hover-hv cursor-pointer"
               onClick={() => handleBarbershopClick(barbershop)}
             >
               <div className="flex items-center gap-x-5">
