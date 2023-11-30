@@ -1,9 +1,10 @@
 import React from 'react'
+import AppLogin from '@/components/Forms/LoginForm'
 
-const page = () => {
+export default function page() {
   return (
-    <div>Login</div>
+    <div>
+        <AppLogin/>
+    </div>
   )
 }
-
-export default page
