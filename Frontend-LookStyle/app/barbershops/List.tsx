@@ -1,6 +1,7 @@
 "use client";
 import ModalComp from "@/components/ModalComp";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 type BarbershopProps = {
@@ -14,6 +15,7 @@ type BarbershopProps = {
 };
 
 const List = () => {
+  const router = useRouter();
   const [data_barbershop, setBarbershop] = useState<BarbershopProps[]>([]);
   const [Loading, setLoading] = useState("Cargando");
   const [search, setSearch] = useState("");
@@ -53,6 +55,8 @@ const List = () => {
   const handleBarbershopClick = (barbershop: BarbershopProps) => {
     setSelectedBarbershop(barbershop);
     setOpen(true);
+    // router.push(`/barbershops/${barbershop.id}`)
+    
   };
 
   // Funcion para cerrar el Modal
