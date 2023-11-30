@@ -129,22 +129,12 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                   <button
                     type="button"
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primarycolor-pc text-base font-medium hover:bg-primarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={onClose}
                   >
-                    <Link href={`/barbershops/id/${barbershop.id}`}>
-                      Agendar
+                    <Link href={`/barbershops/${barbershop.id}`}>
+                      Ver/Agendar
                     </Link>
                   </button>
 
-                  <button
-                    type="button"
-                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-tertiarycolor-tc text-base font-medium hover:bg-tertiarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={onClose}
-                  >
-                    <Link href={`/profile/${barbershop.id}`}>
-                      Ver
-                    </Link>
-                  </button>
                 </div>
               </div>
             </Transition.Child>
