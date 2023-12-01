@@ -54,16 +54,8 @@ const NavBar = () => {
             </Link>
           ))}
         </ul>
-
-        <div className="md:flexCenter hidden">
-          <Link href="/auth/register">
-            <Button
-              type="button"
-              title="Unirme"
-              variant="btn_primary_gradient"
-            />
-          </Link>
-        </div>
+            
+        
       </div>
     </nav>
   );
