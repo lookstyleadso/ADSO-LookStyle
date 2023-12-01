@@ -15,7 +15,7 @@ const Footer = () => {
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">
             {FOOTER_LINKS.map((columns) => (
               <FooterColumn title={columns.title}>
-                <ul className="refular-14 flex flex-col gap-4 text-graycolor-gc">
+                <ul className="regular-14 flex flex-col gap-4 text-graycolor-gc">
                   {columns.links.map((link) => (
                     <Link href="/" key={link} className="hover:underline">
                       {link}
@@ -36,7 +36,7 @@ const Footer = () => {
                     <p className="whitespace-nowrap text-white">
                       {link.label}:
                     </p>
-                    <p className="medium-14 whitespace-nowrap text-graycolor-gc hover:underline">
+                    <p className="regular-14 whitespace-nowrap text-graycolor-gc hover:underline">
                       {link.value}
                     </p>
                   </Link>

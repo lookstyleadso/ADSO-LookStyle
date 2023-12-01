@@ -121,6 +121,7 @@ export const FOOTER_CONTACT_INFO = {
   title: "Contactos",
   links: [
     { label: "Información", value: "Soporte" },
+    { label: "Teléfono", value: "3000000000" },
   ],
 };
 
