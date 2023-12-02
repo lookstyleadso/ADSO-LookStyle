@@ -56,7 +56,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-52 sm:align-middle sm:max-w-4xl sm:w-full">
+              <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-44 sm:align-middle sm:max-w-4xl sm:w-full">
                 <div className="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                   <IoCloseSharp
                     className="text-3xl cursor-pointer"
