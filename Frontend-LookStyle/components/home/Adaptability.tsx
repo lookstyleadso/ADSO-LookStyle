@@ -1,5 +1,5 @@
 import React from "react";
-import CtaComp from "../../components/CtaComp";
+import CtaComp from "../CtaComp";
 
 const Adaptability = () => {
   return (
