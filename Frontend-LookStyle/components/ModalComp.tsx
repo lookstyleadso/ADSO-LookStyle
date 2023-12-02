@@ -73,7 +73,6 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                       height={500}
                       className="h-16 w-16 rounded-full"
                     />
-
                     {/* {barbershop.profile_photo &&
                       barbershop.profile_photo.map((photo, index) => (
                         <Image

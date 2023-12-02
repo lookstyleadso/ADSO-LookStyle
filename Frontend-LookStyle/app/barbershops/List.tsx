@@ -91,7 +91,6 @@ const List = () => {
                   height={500}
                   className="h-16 w-16 rounded-full"
                 />
-
                 {/* {barbershop.profile_photo &&
                     barbershop.profile_photo.map((photo, index) => (
                       <Image
@@ -103,7 +102,6 @@ const List = () => {
                         className="h-16 w-16 rounded-full"
                       />
                     ))} */}
-
                 <div className="flex w-full justify-between gap-4">
                   <div>
                     <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
