@@ -6,11 +6,9 @@ import Image from "next/image";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 
-
-
 type BarbershopProps = {
   id?: number;
-  profile_photo: [];
+  profile_photo: string;
   barbershop_name: string;
   email: string;
   phone_number: string;
@@ -59,17 +57,24 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-52 sm:align-middle sm:max-w-4xl sm:w-full">
-
-
-
                 <div className="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                  <IoCloseSharp className="text-3xl cursor-pointer" onClick={onClose} />
+                  <IoCloseSharp
+                    className="text-3xl cursor-pointer"
+                    onClick={onClose}
+                  />
                 </div>
-
 
                 <div className="sm:flex items-center gap-10 px-10 py-10">
                   <div className="flex w-full items-center gap-x-5">
-                    {barbershop.profile_photo &&
+                    <Image
+                      src={barbershop.profile_photo}
+                      alt="Perfil"
+                      width={500}
+                      height={500}
+                      className="h-16 w-16 rounded-full"
+                    />
+
+                    {/* {barbershop.profile_photo &&
                       barbershop.profile_photo.map((photo, index) => (
                         <Image
                           key={index}
@@ -79,7 +84,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                           height={500}
                           className="h-28 w-28 rounded-full"
                         />
-                      ))}
+                      ))} */}
                     <div className="flex w-full justify-between gap-4">
                       <div>
                         <h3 className="text-base bold-20 leading-7 tracking-tight text-gray-900">
@@ -102,7 +107,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
 
                     <div className="justify-items-center">
                       {barbershop.state.toUpperCase() === "ACTIVO" ||
-                        barbershop.state.toUpperCase() === "ABIERTO" ? (
+                      barbershop.state.toUpperCase() === "ABIERTO" ? (
                         <div className="mt-1 flex items-center gap-x-1.5">
                           <div className="flex-none rounded-full p-1 bg-emerald-500/20">
                             <div className="h-2 w-2 rounded-full bg-emerald-500" />
@@ -126,7 +131,10 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                 </div>
 
                 <div className="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                  <Link href={`/barbershops/${barbershop.id}`} className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primarycolor-pc text-base font-medium hover:bg-primarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                  <Link
+                    href={`/barbershops/${barbershop.id}`}
+                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primarycolor-pc text-base font-medium hover:bg-primarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
+                  >
                     Ver/Agendar
                   </Link>
                 </div>
