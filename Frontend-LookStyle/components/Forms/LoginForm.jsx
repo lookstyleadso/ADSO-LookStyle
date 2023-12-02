@@ -55,7 +55,7 @@ export default function LoginForm() {
                 <div className='w-full max-w-md md:max-w-lg xl:max-w-2xl px-6 md:px-8 py-8 rounded-3xl bg-white border-2 border-gray-100'>
                     <div className='flex'>
                     <h1 className='text-3xl md:text-5xl font-semibold text-center mb-4'>Bienvenido a LookStyle</h1>
-                    <Link href={'/'}><HiIcons.HiChevronRight className='text-lg' /></Link>
+                    <Link className='text-lg' href={'/'}><HiIcons.HiChevronRight/></Link>
 
                     </div>
                     <p className='text-sm md:text-lg text-gray-500 text-center mb-6'>Bienvenido, Por favor ingresa tus datos.</p>
