@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 //import axios from "axios";
 
-function formBarbershop() {
+function FormBarbershop() {
 
     const [barbershop_name, setBarberName] = useState("");
     const [charge_name, setCharge_name] = useState("");
@@ -181,7 +181,7 @@ function formBarbershop() {
 
                                 </div>
 
-                                
+
 
                                 <div className="mb-6">
                                     <label htmlFor="social_networks" className="block text-gray-700 text-sm font-semibold mb-2">
@@ -214,40 +214,40 @@ function formBarbershop() {
                                     />
 
                                 </div>
-                                </div>
+                            </div>
 
-                                <div className="mb-6">
-                                    <label htmlFor="information" className="block text-gray-700 text-sm font-semibold mb-2">
-                                        Information *
-                                    </label>
-                                    <textarea id="support"  className="border rounded px-4 py-2 w-full h-24"
-                                        type="text"
-                                        name="information"
-                                        
-                                        required
-                                        placeholder="Escribe Informacion Adicional de tu barberia"
-                                        value={information}
-                                        onChange={(e) => setInfo(e.target.value)}
-                                        />
-                                      
+                            <div className="mb-6">
+                                <label htmlFor="information" className="block text-gray-700 text-sm font-semibold mb-2">
+                                    Information *
+                                </label>
+                                <textarea id="support" className="border rounded px-4 py-2 w-full h-24"
+                                    type="text"
+                                    name="information"
 
-                                </div>
+                                    required
+                                    placeholder="Escribe Informacion Adicional de tu barberia"
+                                    value={information}
+                                    onChange={(e) => setInfo(e.target.value)}
+                                />
 
-                                
 
-                                <button
-                                    type="submit"
-                                    className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
-                                >
-                                    Registrar Barberia
-                                </button>
-                                <p className="text-gray-600 text-xs text-center mt-4">
-                                    Al registrar tu barberia, acepta los terminos y condiciones de Lookstyle.
-                                    <a href="#" className="text-blue-500 hover:underline">Terms and Conditions</a>.
-                                </p>
-                           
+                            </div>
 
-                            
+
+
+                            <button
+                                type="submit"
+                                className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
+                            >
+                                Registrar Barberia
+                            </button>
+                            <p className="text-gray-600 text-xs text-center mt-4">
+                                Al registrar tu barberia, acepta los terminos y condiciones de Lookstyle.
+                                <a href="#" className="text-blue-500 hover:underline">Terms and Conditions</a>.
+                            </p>
+
+
+
                         </form>
 
 
@@ -290,4 +290,4 @@ function formBarbershop() {
     )
 }
 
-export default formBarbershop
+export default FormBarbershop
