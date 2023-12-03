@@ -1,13 +1,15 @@
-import React from 'react'
-import { useParams } from 'next/navigation'
-import Profile from './Profile'
+import React from "react";
+import { useParams } from "next/navigation";
+import Profile from "./Profile";
+import NavBar from "@/components/NavBar";
 
 const page = () => {
-    return (
-        <>
-            <Profile />
-        </>
-    )
-}
+  return (
+    <>
+      <NavBar />
+      <Profile />
+    </>
+  );
+};
 
-export default page
+export default page;
