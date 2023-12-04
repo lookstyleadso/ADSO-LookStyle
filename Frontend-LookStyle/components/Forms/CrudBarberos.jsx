@@ -1,61 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react";
-//import axios from "axios";
+
 
 function formBarbershop() {
 
-    const [barbershop_name, setBarberName] = useState("");
-    const [charge_name, setCharge_name] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone_number, setPhone] = useState("");
-    const [location, setLocation] = useState("");
-    const [information, setInfo] = useState("");
-    const [social_networks, setRedes] = useState("");
-    const [state, setState] = useState("");
-    const [posts, setPosts] = useState([]);
-    const [cargar, setCargar] = useState(true);
-
-    useEffect(() => {
-        const cargarPost = async () => {
-            const response = await fetch("http://localhost:3006/api/v1/barbershops/");
-            const { data } = await response.json();
-            const desestructura = data;
-            setPosts(desestructura);
-        };
-        if (cargar) {
-            cargarPost();
-            setCargar(false);
-        }
-    }, [cargar]);
-
-    const agregarBarbershop = async (nombre_barberia, encargado, correo, phone, direccion, info, redes, estado) => {
-        let response = await fetch("http://localhost:3006/api/v1/barbershops/  ", {
-            method: "POST",
-            body: JSON.stringify({
-                barbershop_name: nombre_barberia,
-                charge_name: encargado,
-                email: correo,
-                phone_number: phone,
-                location: direccion,
-                information: info,
-                social_networks: redes,
-                state: estado,
-
-            }),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8",
-            },
-        });
-        let data = await response.json();
-        setPosts((posts) => [data, ...posts]);
-    };
-
-    const controladorDelEnvio = (e) => {
-        e.preventDefault();
-        agregarBarbershop(barbershop_name, charge_name, email, phone_number, location, information, social_networks, state);
-    };
-
+    
 
 
 
@@ -92,7 +41,7 @@ function formBarbershop() {
                             <h2 className="text-3xl font-semibold text-gray-800 md:text-4xl">Informacion Barberia </h2>
                             <p className="mt-2 text-sm text-gray-500 md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cum cupiditate ducimus, fugit harum id necessitatibus odio quam quasi, quibusdam rem tempora voluptates. Cumque debitis dignissimos id quam vel!</p>
                             <div className="flex justify-center lg:justify-start mt-6">
-                                <a className="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="#">Registrar Barbero</a>
+                                <a className="px-4 py-3 bg-gray-900 text-gray-200 text-xs font-semibold rounded hover:bg-gray-800" href="/auth/AddBarber">Registrar Barbero</a>
                                 <a className="mx-4 px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400" href="#">Ver Mas ...</a>
                             </div>
                         </div>
