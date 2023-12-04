@@ -19,7 +19,7 @@ type BarbershopProps = {
 const Profile = () => {
   const { id } = useParams();
   const [barbershop, setBarbershop] = useState<BarbershopProps | null>(null);
-  const [followersCount, setFollowersCount] = useState(1200);
+  const [followersCount, setFollowersCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -159,7 +159,6 @@ const Profile = () => {
           <div className="grid grid-cols-12 gap-4 ">
             <div className="col-span-12 sm:col-span-4">
               <div className="p-4 relative bg-darkcolor-dc border border-darkcolor-dc shadow-lg rounded-2xl gap-4">
-                <p>infroamcion barberia</p>
 
                 {barbershop.state.toUpperCase() === "ACTIVO" ||
                 barbershop.state.toUpperCase() === "ABIERTO" ? (
