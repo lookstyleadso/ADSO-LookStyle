@@ -1,5 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
 import Link from 'next/link'
 
 export default function DashboardNav() {
@@ -12,13 +11,4 @@ export default function DashboardNav() {
             </ul>
         </nav>
     )
-=======
-
-export default function NavDashboard() {
-  return (
-    <div>
-        
-    </div>
-  )
->>>>>>> f2274ca52b237c2c2f9bb5ff4c085722c489e8f0
 }

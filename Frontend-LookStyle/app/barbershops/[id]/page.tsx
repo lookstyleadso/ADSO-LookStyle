@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // pages/barbershop/[id].js
 'use client';
 
@@ -33,15 +32,8 @@ const BarbershopProfile = () => {
   if (!barbershop) {
     return <div>Loading...</div>;
   }
-=======
-import React from "react";
-import { useParams } from "next/navigation";
-import Profile from "./Profile";
-import NavBar from "@/components/NavBar";
->>>>>>> feature/FRONT001
 
   return (
-<<<<<<< HEAD
     <div>
       <h1>{barbershop.barbershop_name}</h1>
       <p>{barbershop.email}</p>
@@ -54,13 +46,3 @@ import NavBar from "@/components/NavBar";
 };
 
 export default BarbershopProfile;
-=======
-    <>
-      <NavBar />
-      <Profile />
-    </>
-  );
-};
-
-export default page;
->>>>>>> feature/FRONT001

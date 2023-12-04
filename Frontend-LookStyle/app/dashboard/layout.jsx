@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import DashboardNav from "@/components/Dashboard/Nav"
 export default function LayoutDash({ children }) {
     return (
@@ -10,20 +9,3 @@ export default function LayoutDash({ children }) {
         </>
     )
 }
-=======
-
-import NavDashboard from '@/components/Dashboard/Nav'
-
-const Layout = ({ children }) => {
-    return (
-        <div>
-            <NavDashboard />
-            <main >
-                {children}
-            </main>
-        </div>
-    );
-};
-
-export default Layout; 
->>>>>>> f2274ca52b237c2c2f9bb5ff4c085722c489e8f0
