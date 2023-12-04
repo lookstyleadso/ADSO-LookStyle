@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-export default function PageDashboard() {
+export default function InfoPage() {
     return (
         <div>
-                new home page
+            info page
         </div>
     )
 }

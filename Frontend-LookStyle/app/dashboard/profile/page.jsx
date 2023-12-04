@@ -1,10 +1,9 @@
 import React from 'react'
 
-
-export default function PageDashboard() {
+export default function ProfilePage() {
     return (
         <div>
-                new home page
+                profile page
         </div>
     )
 }

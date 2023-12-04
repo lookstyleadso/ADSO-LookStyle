@@ -1,19 +1,14 @@
-"use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import * as HiIcons from "react-icons/hi";
-import { useMediaQuery } from "react-responsive";
-import Link from "next/link";
-function NavDashboard() {
-    return (
-        <div className="bg-darkcolor-dc h-48 w-screen">
-            <nav>
-                <ul>
-                    <Link href={"/"}>Home</Link>
-                </ul>
-            </nav>
-        </div>
-    );
-}
+import React from 'react'
+import Link from 'next/link'
 
-export default NavDashboard;
+export default function DashboardNav() {
+    return (
+        <nav className='bg-darkcolor-dc w-1/5 h-screen text-white fixed'>
+            <ul className=' flex flex-col gap-10'>
+                <Link href={'/'}>Home</Link>
+                <Link href={'/dashboard/info'}>info</Link>
+                <Link href={'/dashboard/profile'}>profile</Link>
+            </ul>
+        </nav>
+    )
+}
