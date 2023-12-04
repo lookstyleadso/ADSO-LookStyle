@@ -18,7 +18,7 @@ function formBarbershop() {
 
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("http://localhost:3006/api/v1/barbershops/");
+            const response = await fetch('');
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);
