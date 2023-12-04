@@ -9,6 +9,7 @@ module.exports = {
       "st4allthings4p4ci.blob.core.windows.net",
       "content.listisima.com",
       "previews.123rf.com",
+      "res.cloudinary.com",
     ],
   },
 };

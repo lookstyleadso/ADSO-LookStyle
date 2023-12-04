@@ -53,7 +53,7 @@ const ServiceItem = ({ title, icon, description }: ServiceItem) => {
   ]
 
   return (
-    <li className="flex w-full flex-1 flex-col rounded-2xl items-center justify-center pt-4 hover:bg-hover-hv">
+    <li className="flex w-full flex-1 flex-col rounded-2xl items-center justify-center pt-4 border hover:bg-hover-hv">
 
       <Link href="/" className="rounded-2xl cursor-default">
         {placements.map((placement) => (
