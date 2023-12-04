@@ -1,10 +1,10 @@
-import React from 'react'
-import UserRegister from '@/components/Forms/UserRegister'
+import React from "react";
+import UserRegister from "@/components/forms/UserRegister";
 
 export default function registerPage() {
   return (
     <div>
-        <UserRegister/>
+      <UserRegister />
     </div>
-  )
+  );
 }

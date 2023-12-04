@@ -1,18 +1,10 @@
-import React from 'react'
-<<<<<<< HEAD
-import LoginForm from '@/components/Forms/LoginForm'
+import React from "react";
+import LoginForm from "@/components/forms/LoginForm";
 
 export default function LoginPage() {
   return (
     <div>
-        <LoginForm/>
-=======
-import Login from '@/components/Login'
-const page = () => {
-  return (
-    <div className='w-full flex justify-center items-center'>
-      <Login />
->>>>>>> feature/FRONT001
+      <LoginForm />
     </div>
-  )
+  );
 }

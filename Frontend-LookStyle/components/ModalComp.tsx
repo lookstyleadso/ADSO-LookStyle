@@ -6,8 +6,6 @@ import Image from "next/image";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 
-
-
 type BarbershopProps = {
   id?: number;
   profile_photo: string;
@@ -136,23 +134,8 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
                     href={`/barbershops/${barbershop.id}`}
                     className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primarycolor-pc text-base font-medium hover:bg-primarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
                   >
-<<<<<<< HEAD
-                    <Link href={`/barbershops/${barbershop.id}`}>
-                      Agendar
-                    </Link>
-                  </button>
-
-                  <button
-                    type="button"
-                    className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-tertiarycolor-tc text-base font-medium hover:bg-tertiarycolor-hover text-white focus:outline-none sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={onClose}
-                  >
-                    Cerrar
-                  </button>
-=======
                     Ver/Agendar
                   </Link>
->>>>>>> feature/FRONT001
                 </div>
               </div>
             </Transition.Child>
