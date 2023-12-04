@@ -1,10 +1,8 @@
 import React from 'react'
-import NavDashboard from '@/components/Dashboard/Nav'
+
 
 export default function PageDashboard() {
     return (
-        <div>
-                <NavDashboard/>
-        </div>
+        <h1>is home</h1>
     )
 }
