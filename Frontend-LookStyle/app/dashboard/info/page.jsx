@@ -77,6 +77,7 @@ export default function AppLogin() {
     }
 
 
+<<<<<<< HEAD:Frontend-LookStyle/components/Forms/LoginForm.jsx
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -85,6 +86,12 @@ export default function AppLogin() {
                 <button type='submit'>Iniciar sesion</button>
             </form>
             <Link href='/'>Ir a la home</Link>
+=======
+export default function InfoPage() {
+    return (
+        <div>
+            info page
+>>>>>>> feature/FRONT004:Frontend-LookStyle/app/dashboard/info/page.jsx
         </div>
     )
 }

@@ -1,11 +1,12 @@
 "use client";
 import ModalComp from "@/components/ModalComp";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 type BarbershopProps = {
   id?: number;
-  profile_photo: [];
+  profile_photo: string;
   barbershop_name: string;
   email: string;
   phone_number: string;
@@ -14,6 +15,7 @@ type BarbershopProps = {
 };
 
 const List = () => {
+  const router = useRouter();
   const [data_barbershop, setBarbershop] = useState<BarbershopProps[]>([]);
   const [Loading, setLoading] = useState("Cargando");
   const [search, setSearch] = useState("");
@@ -44,15 +46,17 @@ const List = () => {
   const results = !search
     ? data_barbershop
     : data_barbershop.filter((dataname) =>
-      dataname.barbershop_name
-        .toLowerCase()
-        .includes(search.toLocaleLowerCase())
-    );
+        dataname.barbershop_name
+          .toLowerCase()
+          .includes(search.toLocaleLowerCase())
+      );
 
   // Funcion para abrir
   const handleBarbershopClick = (barbershop: BarbershopProps) => {
     setSelectedBarbershop(barbershop);
     setOpen(true);
+    // router.push(`/barbershops/${barbershop.id}`)
+    
   };
 
   // Funcion para cerrar el Modal
@@ -80,29 +84,35 @@ const List = () => {
           {results.map((barbershop) => (
             <li
               key={barbershop.id}
-              className="p-5 rounded-2xl hover:bg-hover-hv cursor-pointer"
+              className="p-5 rounded-2xl border shadow-sm hover:bg-hover-hv cursor-pointer"
               onClick={() => handleBarbershopClick(barbershop)}
             >
               <div className="flex items-center gap-x-5">
-                {barbershop.profile_photo &&
-                  barbershop.profile_photo.map((photo, index) => (
-                    <Image
-                      key={index}
-                      src={photo}
-                      alt="Perfil"
-                      width={500}
-                      height={500}
-                      className="h-16 w-16 rounded-full"
-                    />
-                  ))}
-
+                <Image
+                  src={barbershop.profile_photo}
+                  alt="Perfil"
+                  width={500}
+                  height={500}
+                  className="h-16 w-16 rounded-full"
+                />
+                {/* {barbershop.profile_photo &&
+                    barbershop.profile_photo.map((photo, index) => (
+                      <Image
+                        key={index}
+                        src={photo}
+                        alt="Perfil"
+                        width={500}
+                        height={500}
+                        className="h-16 w-16 rounded-full"
+                      />
+                    ))} */}
                 <div className="flex w-full justify-between gap-4">
                   <div>
                     <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
                       {barbershop.barbershop_name}
                     </h3>
                     {barbershop.state.toUpperCase() === "ACTIVO" ||
-                      barbershop.state.toUpperCase() === "ABIERTO" ? (
+                    barbershop.state.toUpperCase() === "ABIERTO" ? (
                       <div className="mt-1 flex items-center gap-x-1.5">
                         <div className="flex-none rounded-full p-1 bg-emerald-500/20">
                           <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />

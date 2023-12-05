@@ -13,11 +13,11 @@ const Footer = () => {
           </Link>
 
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">
-            {FOOTER_LINKS.map((columns) => (
-              <FooterColumn title={columns.title}>
-                <ul className="refular-14 flex flex-col gap-4 text-graycolor-gc">
-                  {columns.links.map((link) => (
-                    <Link href="/" key={link} className="hover:underline">
+            {FOOTER_LINKS.map((columns, index) => (
+              <FooterColumn key={index} title={columns.title}>
+                <ul className="regular-14 flex flex-col gap-4 text-graycolor-gc">
+                  {columns.links.map((link, linkIndex) => (
+                    <Link key={linkIndex} href="/" className="hover:underline">
                       {link}
                     </Link>
                   ))}
@@ -27,16 +27,16 @@ const Footer = () => {
 
             <div className="flex flex-col gap-5">
               <FooterColumn title={FOOTER_CONTACT_INFO.title}>
-                {FOOTER_CONTACT_INFO.links.map((link) => (
+                {FOOTER_CONTACT_INFO.links.map((link, linkIndex) => (
                   <Link
-                    href="/"
-                    key={link.label}
+                    key={linkIndex}
+                    href="/support"
                     className="flex gap-4 md:flex-col lg:flex-row"
                   >
                     <p className="whitespace-nowrap text-white">
                       {link.label}:
                     </p>
-                    <p className="medium-14 whitespace-nowrap text-graycolor-gc hover:underline">
+                    <p className="regular-14 whitespace-nowrap text-graycolor-gc hover:underline">
                       {link.value}
                     </p>
                   </Link>
@@ -47,8 +47,8 @@ const Footer = () => {
             <div className="flex flex-col gap-5">
               <FooterColumn title={SOCIALS.title}>
                 <ul className="regular-14 flex gap-4 text-graycolor-gc">
-                  {SOCIALS.links.map((link) => (
-                    <Link href="/" key={link} >
+                  {SOCIALS.links.map((link, linkIndex) => (
+                    <Link key={linkIndex} href="/">
                       <Image
                         src={link}
                         alt="logoredes"

@@ -1,10 +1,10 @@
 import React from 'react'
-import AppLogin from '@/components/Forms/LoginForm'
+import LoginFormUser from '@/components/Forms/LoginFormUser'
 
-export default function page() {
+export default function LoginPage() {
   return (
     <div>
-        <AppLogin/>
+        <LoginFormUser/>
     </div>
   )
 }
