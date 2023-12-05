@@ -1,9 +1,13 @@
 'use client'
-
 import { useState, useEffect } from "react";
 //import axios from "axios";
 
-function formBarbershop() {
+type BarberProps = {
+
+}
+
+
+export default function formBarbershop() {
 
     const [barbershop_name, setBarberName] = useState("");
     const [charge_name, setCharge_name] = useState("");
@@ -110,5 +114,3 @@ function formBarbershop() {
 
     )
 }
-
-export default formBarbershop
