@@ -27,6 +27,10 @@ body {
     @apply bg-gradient-to-r from-secundarycolor-sc to-primarycolor-pc px-8 py-4 text-white transition-all hover:from-primarycolor-pc hover:to-secundarycolor-sc hover:text-white;
   }
 
+  .btn_primary_gradient_big {
+    @apply bg-gradient-to-r from-secundarycolor-sc to-primarycolor-pc px-8 py-4 w-4/5 text-white transition-all hover:from-primarycolor-pc hover:to-secundarycolor-sc hover:text-white;
+  }
+
   .btn_tertiary {
     @apply bg-tertiarycolor-tc px-8 py-4 text-white transition-all hover:bg-darkcolor-dc;
   }
@@ -46,6 +50,10 @@ body {
 
   .padding-container-guide {
     @apply pb-24 pt-10 2xl:px-8 lg:grid-cols-2 lg:px-20 md:px-8 sm:px-8 xm:px-8 xd:px-8;
+  }
+
+  .padding-container-support {
+    @apply px-10 lg:px-52 3xl:px-52;
   }
 
   .flexCenter {
@@ -123,6 +131,8 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
