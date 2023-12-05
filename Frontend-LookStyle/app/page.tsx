@@ -1,12 +1,12 @@
 import NavBar from "@/components/NavBar";
-import Hero from "@/components/home/Hero";
-import Services from "@/components/home/Services";
-import Guide from "@/components/home/Guide";
-import Contest from "@/components/home/Contest";
-import Adaptability from "@/components/home/Adaptability";
+import Hero from "@/components/homeComps/Hero";
+import Services from "@/components/homeComps/Services";
+import Guide from "@/components/homeComps/Guide";
+import Contest from "@/components/homeComps/Contest";
+import Adaptability from "@/components/homeComps/Adaptability";
 import BackToComp from "@/components/BackTopComp";
 import Footer from "@/components/Footer";
-import '@/app/favicon.ico'
+import "@/app/favicon.ico";
 
 export default function Home() {
   return (
