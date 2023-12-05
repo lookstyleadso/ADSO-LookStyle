@@ -40,18 +40,14 @@ export default function ListBarbers() {
         }
       };
 
-    const agregarBarber = async (nombre_barberia, encargado, correo, phone, direccion, info, redes, estado) => {
+    const agregarBarber = async (barber_name, phone_number, BarbershopId) => {
         let response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/  ", {
             method: "POST",
             body: JSON.stringify({
-                barbershop_name: nombre_barberia,
-                charge_name: encargado,
-                email: correo,
-                phone_number: phone,
-                location: direccion,
-                information: info,
-                social_networks: redes,
-                state: estado,
+                barber_name: barber_name,
+                phone_number: phone_number,
+                BarbershopId: BarbershopId,
+               
 
             }),
             headers: {
@@ -82,10 +78,11 @@ export default function ListBarbers() {
             <div className="mb-4">
                 
                 <div className="flex justify-end">
-                    <Link href="/auth/addBarberos" className="px-4 py-2 rounded-md bg-sky-500 text-sky-100 hover:bg-sky-600">Crear Barbero</Link>
+                    <Link href="/auth/addBarbers" className="px-4 py-2 rounded-md bg-sky-500 text-sky-100 hover:bg-sky-600">Crear Barbero</Link>
                 </div>
             </div>
             <div className="flex flex-col">
+            <form onSubmit={controladorDelEnvio} >
                 <div className="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                     <div className="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
                         <table className="min-w-full">
@@ -157,6 +154,7 @@ export default function ListBarbers() {
                         </div>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
 
