@@ -1,10 +1,10 @@
 import React from 'react'
-//import BarberoForm from '@/components/Forms/CrudBarberos'
+import Addbarberos from '@/components/Forms/AddBarbers'
 
 export default function BarberoPage() {
   return (
     <div>
-        <BarberoForm/>
+        <Addbarberos/>
     </div>
   )
 }
