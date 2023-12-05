@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
 
+
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -41,8 +42,9 @@ const NavBar = () => {
         </div>
 
         <ul
-          className={`md:flex md:items-center absolute md:static md:z-auto bg-darkcolor-dc gap-6 md:gap-2 lg:gap-8 xl:gap-10 z-[-1] left-0 w-full md:w-auto md:pl-0  transition-all duration-500 ease-in ${openMenu ? "top-8" : "top-[-490px]"
-            }`}
+          className={`md:flex md:items-center absolute md:static md:z-auto bg-darkcolor-dc gap-6 md:gap-2 lg:gap-8 xl:gap-10 z-[-1] left-0 w-full md:w-auto md:pl-0  transition-all duration-500 ease-in ${
+            openMenu ? "top-8" : "top-[-490px]"
+          }`}
         >
           {NAV_LINKS.map((link) => (
             <Link
@@ -54,8 +56,16 @@ const NavBar = () => {
             </Link>
           ))}
         </ul>
-            
-        
+
+        <div className="md:flexCenter hidden">
+          <Link href="/auth/register">
+            <Button
+              type="button"
+              title="Unirme"
+              variant="btn_primary_gradient"
+            />
+          </Link>
+        </div>
       </div>
     </nav>
   );

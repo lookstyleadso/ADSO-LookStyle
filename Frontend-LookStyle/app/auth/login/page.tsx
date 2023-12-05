@@ -1,10 +1,10 @@
 import React from 'react'
-import LoginForm from '@/components/Forms/LoginForm'
+import LoginFormUser from '@/components/Forms/LoginFormUser'
 
 export default function LoginPage() {
   return (
     <div>
-        <LoginForm/>
+        <LoginFormUser/>
     </div>
   )
 }

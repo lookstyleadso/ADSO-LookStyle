@@ -1,10 +1,12 @@
-import React from 'react'
-import BarbershopRegister from '@/components/Forms/BarbershopRegister'
+import RegisterFormBarbershop from "@/components/Forms/RegisterFormBarbershop";
+import React from "react";
 
-export default function BarbershopregisterPage() {
+const page = () => {
   return (
-    <div>
-        <BarbershopRegister/>
-    </div>
-  )
-}
+    <>
+      <RegisterFormBarbershop />
+    </>
+  );
+};
+
+export default page;
