@@ -3,11 +3,7 @@ import type { Metadata } from "next";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: "LookStyle",
-=======
   title: "LookStyle | Software Gratuito para Barberías",
->>>>>>> c4e2ad3f4c73c47e3cbb862c1568a54133f29bf9
   description: "Main page of the project",
 };
 
