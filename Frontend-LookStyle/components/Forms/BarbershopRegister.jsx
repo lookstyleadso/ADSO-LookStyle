@@ -18,7 +18,7 @@ function FormBarbershop() {
 
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("http://localhost:3006/api/v1/barbershops/");
+            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/");
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);
@@ -30,7 +30,7 @@ function FormBarbershop() {
     }, [cargar]);
 
     const agregarBarbershop = async (nombre_barberia, encargado, correo, phone, direccion, info, redes, estado) => {
-        let response = await fetch("http://localhost:3006/api/v1/barbershops/  ", {
+        let response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/ ", {
             method: "POST",
             body: JSON.stringify({
                 barbershop_name: nombre_barberia,
