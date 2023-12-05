@@ -82,10 +82,10 @@ const SliderPhotos = () => {
               alt="photography"
               width={500}
               height={500}
-              className="h-full w-96 pointer-events-none rounded-t-2xl"
+              className="h-full w-96 pointer-events-none rounded-2xl"
             />
             <div className="flex w-96 place-content-between">
-              <h4 className="capitalize bold-18 text-primarycolor-pc">
+              <h4 className="capitalize bold-18 py-2 text-primarycolor-pc">
                 {data.photo_name}
               </h4>
             </div>
