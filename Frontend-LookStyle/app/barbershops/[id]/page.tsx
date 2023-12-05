@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // pages/barbershop/[id].js
 'use client';
 
@@ -32,8 +33,16 @@ const BarbershopProfile = () => {
   if (!barbershop) {
     return <div>Loading...</div>;
   }
+=======
+import React from "react";
+import { useParams } from "next/navigation";
+import Profile from "./Profile";
+import NavBar from "@/components/NavBar";
+>>>>>>> c4e2ad3f4c73c47e3cbb862c1568a54133f29bf9
 
+const page = () => {
   return (
+<<<<<<< HEAD
     <div>
       <h1>{barbershop.barbershop_name}</h1>
       <p>{barbershop.email}</p>
@@ -46,3 +55,13 @@ const BarbershopProfile = () => {
 };
 
 export default BarbershopProfile;
+=======
+    <>
+      <NavBar />
+      <Profile />
+    </>
+  );
+};
+
+export default page;
+>>>>>>> c4e2ad3f4c73c47e3cbb862c1568a54133f29bf9

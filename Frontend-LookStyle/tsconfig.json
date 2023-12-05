@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "dom",
@@ -29,7 +30,15 @@
       ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx" ,"**/*.jsx",".next/types/**/*.ts","components/home/LoadPhotos.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.jsx",
+    "app/home/LoadPhotos.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
-
