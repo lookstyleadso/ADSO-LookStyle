@@ -1,10 +1,10 @@
 import React from 'react'
-import AddBarber from '@/components/Forms/addBarber'
+import ListBarbers from '@/components/Forms/ListBarbers'
 
 export default function AddPage() {
   return (
     <div>
-        <AddBarber/>
+      <ListBarbers />
     </div>
   )
 }
