@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
+import Appointment from "@/components/appointmentComps/Appointment";
 
 type BarbershopProps = {
   id?: number;
@@ -31,6 +32,8 @@ const Profile = () => {
     };
     fetchData();
   }, [id]);
+
+  console.log(barbershop)
 
   if (!barbershop) {
     return (
@@ -249,7 +252,6 @@ const Profile = () => {
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
             {/* Calendario */}
             <div className="flex flex-col p-4 relative items-center justify-center bg-darkcolor-dc border border-darkcolor-dc shadow-lg rounded-2xl">
-
               {/* <div className="">
                 <div className="text-center p-5 flex-auto justify-center">
                   <svg
