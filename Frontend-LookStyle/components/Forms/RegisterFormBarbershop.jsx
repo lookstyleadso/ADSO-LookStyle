@@ -1,77 +1,53 @@
 "use client";
+import axios from "axios";
 import { useState, useEffect } from "react";
 //import axios from "axios";
 
 export default function RegisterBarbershop() {
-  const [barbershop_name, setBarberName] = useState("");
-  const [charge_name, setCharge_name] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone_number, setPhone] = useState("");
-  const [location, setLocation] = useState("");
-  const [information, setInfo] = useState("");
-  const [social_networks, setRedes] = useState("");
-  const [state, setState] = useState("");
-  const [posts, setPosts] = useState([]);
-  const [cargar, setCargar] = useState(true);
+  const [role, setRole] = useState(201)
+  const [barbershop_name, setBarberName] = useState("")
+  const [charge_name, setCharge_name] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPasswor] = useState("")
+  const [phone_number, setPhone] = useState("")
+  const [location, setLocation] = useState("")
+  const [information, setInfo] = useState("")
+  const [social_networks, setRedes] = useState("")
+  const [state, setState] = useState("")
+  const [profile_photo, setProfilePhoto] = useState(null)
 
-  useEffect(() => {
-    const cargarPost = async () => {
-      const response = await fetch("http://localhost:3006/api/v1/barbershops/");
-      const { data } = await response.json();
-      const desestructura = data;
-      setPosts(desestructura);
-    };
-    if (cargar) {
-      cargarPost();
-      setCargar(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+
+    const formData = new FormData()
+
+    formData.append('role', role)
+    formData.append('barbershop_name', barbershop_name)
+    formData.append('charge_name', charge_name)
+    formData.append('email', email)
+    formData.append('password', password)
+    formData.append('phone_number', phone_number)
+    formData.append('location', location)
+    formData.append('information', information)
+    formData.append('social_networks', social_networks.split(','))
+    formData.append('state', state)
+    formData.append('profile_photo', profile_photo)
+
+
+    try {
+      const response = await axios.post('https://adso-lookstyle.onrender.com/api/v1/barbershops', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      console.log(data)
+    } catch (error) {
+      console.error('Error to send the form', error)
     }
-  }, [cargar]);
+  }
 
-  const agregarBarbershop = async (
-    nombre_barberia,
-    encargado,
-    correo,
-    phone,
-    direccion,
-    info,
-    redes,
-    estado
-  ) => {
-    let response = await fetch("http://localhost:3006/api/v1/barbershops/  ", {
-      method: "POST",
-      body: JSON.stringify({
-        barbershop_name: nombre_barberia,
-        charge_name: encargado,
-        email: correo,
-        phone_number: phone,
-        location: direccion,
-        information: info,
-        social_networks: redes,
-        state: estado,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-    let data = await response.json();
-    setPosts((posts) => [data, ...posts]);
-  };
-
-  const controladorDelEnvio = (e) => {
-    e.preventDefault();
-    agregarBarbershop(
-      barbershop_name,
-      charge_name,
-      email,
-      phone_number,
-      location,
-      information,
-      social_networks,
-      state
-    );
-  };
-
-  return (
+  return ( 
     <div>
       <div class="bg-blue-200 dark:bg-gray-800 transition-colors duration-300">
         <div class="container mx-auto p-40">
@@ -98,7 +74,7 @@ export default function RegisterBarbershop() {
               Ingresa los datos de tu barberia para registrarla.
             </p>
 
-            <form onSubmit={controladorDelEnvio}>
+            <form onSubmit={handleSubmit}>
               <div class="grid gap-6 mb-6 lg:grid-cols-2">
                 <div className="mb-4">
                   <label
@@ -163,8 +139,8 @@ export default function RegisterBarbershop() {
                     className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                     required
                     placeholder="Ingresa una contraseña segura"
-                    value={email}
-                    onChange={(e) => setState(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPasswor(e.target.value)}
                   />
                 </div>
 
@@ -237,6 +213,22 @@ export default function RegisterBarbershop() {
                     placeholder="Facebook, Instagram, Twiter"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
+                  />
+                </div>
+                <div className="mb-6">
+                  <label
+                    htmlFor="state"
+                    className="block text-gray-700 text-sm font-semibold mb-2"
+                  >
+                    Foto de perfil *
+                  </label>
+                  <input
+                    type="file"
+                    name="profile_photo"
+                    className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
+                    placeholder="Foto de perfil"
+                    value={profile_photo}
+                    onChange={(e) => setProfilePhoto(e.target.files[0])}
                   />
                 </div>
               </div>
