@@ -30,7 +30,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
       <Transition.Root show={open} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto"
+          className="fixed inset-0 z-20 overflow-y-auto"
           initialFocus={cancelButtonRef}
           onClose={onClose}
         >
@@ -96,7 +96,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
 
                   {/* **** */}
 
-                  <div className="w-full flex">
+                  <div className="w-full flex pt-14 sm:pt-0">
                     <div className="flex-col w-full gap-x-5 items-center space-x-4">
                       <div className="w-full justify-center flex gap-x-3">
                         <FaMapMarkerAlt className="text-3xl" />
@@ -106,7 +106,7 @@ const ModalComp: React.FC<ModalCompProps> = ({ barbershop, onClose, open }) => {
 
                     <div className="justify-items-center">
                       {barbershop.state.toUpperCase() === "ACTIVO" ||
-                      barbershop.state.toUpperCase() === "ABIERTO" ? (
+                        barbershop.state.toUpperCase() === "ABIERTO" ? (
                         <div className="mt-1 flex items-center gap-x-1.5">
                           <div className="flex-none rounded-full p-1 bg-emerald-500/20">
                             <div className="h-2 w-2 rounded-full bg-emerald-500" />

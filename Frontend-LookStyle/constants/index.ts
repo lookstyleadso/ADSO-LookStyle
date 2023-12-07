@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   { href: "/contest", key: "contest", label: "Concurso" },
   { href: "/barbershops", key: "barbershops", label: "Barberias" },
   { href: "/aboutus", key: "aboutus", label: "Sobre nosotros" },
-  { href: "/auth/login", key: "login", label: "Inciar Sesión" },
+  { href: "/auth/authPage", key: "login", label: "Inciar Sesión" },
 ];
 
 // SERVICES SECTION
