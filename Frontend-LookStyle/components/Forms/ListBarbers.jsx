@@ -19,7 +19,7 @@ export default function ListBarbers() {
 
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("http://localhost:3006/api/v1/barbers/");
+            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/");
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);
@@ -30,18 +30,13 @@ export default function ListBarbers() {
         }
     }, [cargar]);
 
-    
     useEffect(() => {
         const fetchOtherData = async () => {
             try {
-                const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbershops/1");
+                const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbershops/3");
                 if (response.ok) {
                     const data = await response.json();
                     setOtherData(data.data);
-                    if (cargar1) {
-                        fetchOtherData();
-                        setCargar1(false);
-                    }
                 } else {
                     throw new Error("Error al obtener datos de la otra API");
                 }
@@ -52,7 +47,6 @@ export default function ListBarbers() {
         fetchOtherData();
     }, []); 
     
-
     const borrarbarber = async (id) => {
         let response = await fetch(`https://adso-lookstyle.onrender.com/api/v1/barbers/${id}`, {
             method: "DELETE",
@@ -128,7 +122,7 @@ export default function ListBarbers() {
                                 </thead>
                                 {Array.isArray(posts) ? (
                                     posts.map(post => {
-                                        if (1 == post.BarbershopId) {
+                                        if (3 == post.BarbershopId) {
                                             return (
                                                 <tbody key={post.id} className="bg-white">
                                                     <tr>
