@@ -14,12 +14,12 @@ export default function RegisterFormUser() {
           <h2 className="font-semibold text-xl text-gray-600">LookStyle</h2>
           <p className="text-gray-500 mb-6">Bienvenido a LookStyle, ingresa tus datos </p>
 
-          <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-              <div className="text-gray-600">
-                <p className="font-medium text-lg">Informacion Personal</p>
-                <p>Porfavor Ingresa Tus Datos.</p>
-              </div>
+            <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+              <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+                <div className="text-gray-600">
+                  <p className="font-medium text-lg">Informacion Personal</p>
+                  <p>Porfavor Ingresa Tus Datos.</p>
+                </div>
 
 
 
@@ -85,23 +85,9 @@ export default function RegisterFormUser() {
                       </button>
                     </div>
 
-                    <div className="md:col-span-1">
-                      <label htmlFor="zipcode">Zipcode</label>
-                      <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" />
-                    </div>
-
-
-                    {/* Agregar los campos adicionales aquí */}
-
-                    {/* Ejemplo de campo adicional */}
-                    <div className="md:col-span-5">
-                      <label htmlFor="additional_field">Informacion Adicional</label>
-                      <input type="text" name="additional_field" id="additional_field" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" />
-                    </div>
-
-                    <div className="md:col-span-5 text-right">
-                      <div className="inline-flex items-end">
-                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Registrarme</button>
+                      <div className="md:col-span-1">
+                        <label htmlFor="zipcode">Zipcode</label>
+                        <input type="text" name="zipcode" id="zipcode" className="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" />
                       </div>
 
                       <div className="md:col-span-5">
@@ -175,11 +161,13 @@ export default function RegisterFormUser() {
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>
-    </div>
+
+    );
+  };
 
 
-  );
-}
