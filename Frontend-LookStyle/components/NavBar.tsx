@@ -58,7 +58,7 @@ const NavBar = () => {
         </ul>
 
         <div className="md:flexCenter hidden">
-          <Link href="/auth/register">
+          <Link href="/auth/registerUser">
             <Button
               type="button"
               title="Unirme"

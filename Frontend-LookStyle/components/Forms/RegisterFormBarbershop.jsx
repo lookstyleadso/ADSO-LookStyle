@@ -30,7 +30,7 @@ export default function RegisterBarbershop() {
     formData.append('phone_number', phone_number)
     formData.append('location', location)
     formData.append('information', information)
-    formData.append('social_networks', social_networks.split(','))
+    formData.append('social_networks', social_networks.split(', '))
     formData.append('state', state)
     formData.append('profile_photo', profile_photo)
 
