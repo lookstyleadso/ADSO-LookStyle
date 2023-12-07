@@ -1,8 +1,69 @@
+'use client'
 import React from "react";
 import Link from "next/link";
 import * as HiIcons from "react-icons/hi";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import Cookies from "js-cookie";
+
+
+
 
 export default function LoginFormBarbershop() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const router = useRouter()
+
+
+  const handleChangeEmail = (e: any) => {
+    setEmail(e.target.value)
+  }
+  const handleChangePassword = (e: any) => {
+    setPassword(e.target.value)
+  }
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    try {
+      const response = await axios.post(
+        'https://adso-lookstyle.onrender.com/api/v1/auth/authenticateB', {
+        email: email,
+        password: password
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+      )
+      const data = response.data
+      Cookies.set('token', data.token, { sameSite: 'None', secure: true })
+      Cookies.set('id', data.id, { sameSite: 'None', secure: true })
+
+      if (response.status === 200) {
+        router.push('/dashboard')
+      } else {
+        router.refresh()
+      }
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      } else {
+        console.log("Error desconocido:", error);
+      }
+    }
+  }
+
+
   return (
     <div className="flex justify-center items-center h-screen bg-graycolor-gc">
       <div className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3">
@@ -19,7 +80,7 @@ export default function LoginFormBarbershop() {
             Bienvenido, Por favor ingresa tus datos.
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mt-6">
               <div className="mb-4">
                 <label className="text-base md:text-lg font-medium">
@@ -29,8 +90,8 @@ export default function LoginFormBarbershop() {
                   className="w-full border-2 border-gray-100 rounded-xl p-3 md:p-4 bg-transparent"
                   placeholder="Ingresar Correo"
                   type="email"
-                  // value={email}
-                  // onChange={handleChangeEmail}
+                  value={email}
+                  onChange={handleChangeEmail}
                 />
               </div>
               <div className="mb-4">
@@ -41,8 +102,8 @@ export default function LoginFormBarbershop() {
                   className="w-full border-2 border-gray-100 rounded-xl p-3 md:p-4 bg-transparent"
                   placeholder="Ingresar Contraseña"
                   type="text"
-                  // value={password}
-                  // onChange={handleChangePassword}
+                  value={password}
+                  onChange={handleChangePassword}
                 />
               </div>
               <div className="mt-6 flex justify-center items-center">
@@ -65,4 +126,5 @@ export default function LoginFormBarbershop() {
       </div>
     </div>
   );
+
 }
