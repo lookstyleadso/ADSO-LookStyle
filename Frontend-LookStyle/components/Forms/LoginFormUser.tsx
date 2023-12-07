@@ -39,7 +39,7 @@ export default function LoginFormUser() {
       const data = response.data;
       Cookie.set("token", data.token, { sameSite: "None" });
       Cookie.set("id", data.id, { sameSite: "None" });
-      router.push("/profiles");
+      router.push("/");
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
