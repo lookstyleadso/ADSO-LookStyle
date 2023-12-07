@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Cookie from "js-cookie";
 import Image from "next/image";
-import Button from "../Button";
+// import Button from "../Button";
 
 export default function LoginFormUser() {
   const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ export default function LoginFormUser() {
       const data = response.data;
       Cookie.set("token", data.token, { sameSite: "None" });
       Cookie.set("id", data.id, { sameSite: "None" });
-      router.push("/");
+      router.push("/profiles");
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
@@ -82,9 +82,6 @@ export default function LoginFormUser() {
               <p className="mb-4 text-grey-700">
                 Ingresa a LookStyle con tus credenciales
               </p>
-              {/* <Link href="/" className="flex items-center justify-center w-full border py-1 mb-6 text-sm font-medium transition duration-300 rounded-2xl text-grey-900 bg-grey-300 hover:bg-grey-400 focus:ring-4 focus:ring-grey-300">
-                                <Image className="h-8 mr-2" src="/logogoogle.svg" alt="Google" width={50} height={50} />
-                            </Link> */}
               <div className="py-8">
                 <label className="mb-2 text-sm text-start text-grey-900">
                   Correo
@@ -126,11 +123,10 @@ export default function LoginFormUser() {
                   </Link>
                 </div>
               </div>
-              <Button
+              <button
                 type="submit"
-                title="Iniciar Sesion"
-                variant="btn_primary_gradient"
-              />
+                title="Iniciar Sesion">Iniciar sesion
+              </button>
               <p className="text-sm leading-relaxed text-grey-900 mt-10">
                 ¿No tienes cuenta?{" "}
                 <Link

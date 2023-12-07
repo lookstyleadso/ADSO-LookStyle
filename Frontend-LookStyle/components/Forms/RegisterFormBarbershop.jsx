@@ -1,14 +1,14 @@
 "use client";
 import axios from "axios";
-import { useState, useEffect } from "react";
-//import axios from "axios";
+import { useState } from "react";
+
 
 export default function RegisterBarbershop() {
   const [role, setRole] = useState(201)
   const [barbershop_name, setBarberName] = useState("")
   const [charge_name, setCharge_name] = useState("")
   const [email, setEmail] = useState("")
-  const [password, setPasswor] = useState("")
+  const [password, setPassword] = useState("")
   const [phone_number, setPhone] = useState("")
   const [location, setLocation] = useState("")
   const [information, setInfo] = useState("")
@@ -19,9 +19,7 @@ export default function RegisterBarbershop() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-
     const formData = new FormData()
-
     formData.append('role', role)
     formData.append('barbershop_name', barbershop_name)
     formData.append('charge_name', charge_name)
@@ -30,7 +28,7 @@ export default function RegisterBarbershop() {
     formData.append('phone_number', phone_number)
     formData.append('location', location)
     formData.append('information', information)
-    formData.append('social_networks', social_networks.split(', '))
+    formData.append('social_networks', social_networks.split(","))
     formData.append('state', state)
     formData.append('profile_photo', profile_photo)
 
@@ -41,17 +39,17 @@ export default function RegisterBarbershop() {
           'Content-Type': 'multipart/form-data'
         }
       })
-      console.log(data)
+      console.log(response.data)
     } catch (error) {
       console.error('Error to send the form', error)
     }
   }
 
-  return ( 
+  return (
     <div>
-      <div class="bg-blue-200 dark:bg-gray-800 transition-colors duration-300">
-        <div class="container mx-auto p-40">
-          <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
+      <div className="bg-blue-200 dark:bg-gray-800 transition-colors duration-300">
+        <div className="container mx-auto p-40">
+          <div className="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
             <div className="flex justify-center mb-6">
               <span className="inline-block bg-gray-200 rounded-full p-3">
                 <svg
@@ -75,7 +73,7 @@ export default function RegisterBarbershop() {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <div class="grid gap-6 mb-6 lg:grid-cols-2">
+              <div className="grid gap-6 mb-6 lg:grid-cols-2">
                 <div className="mb-4">
                   <label
                     htmlFor="Name"
@@ -140,7 +138,7 @@ export default function RegisterBarbershop() {
                     required
                     placeholder="Ingresa una contraseña segura"
                     value={password}
-                    onChange={(e) => setPasswor(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
 
