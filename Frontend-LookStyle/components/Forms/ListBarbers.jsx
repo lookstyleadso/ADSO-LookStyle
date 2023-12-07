@@ -40,14 +40,13 @@ export default function ListBarbers() {
         }
     };
 
-    const agregarBarber = async (barber_name, phone_number, BarbershopId) => {
+    /*const agregarBarber = async (barber_name, phone_number, BarbershopId) => {
         let response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/  ", {
             method: "POST",
             body: JSON.stringify({
                 barber_name: barber_name,
                 phone_number: phone_number,
                 BarbershopId: BarbershopId,
-
 
             }),
             headers: {
@@ -58,6 +57,11 @@ export default function ListBarbers() {
         setPosts((posts) => [data, ...posts]);
     };
 
+    const controladorDelEnvio = (e) => {
+        e.preventDefault();
+        agregarBarber(barber_name, phone_number);
+    };
+*/
     const controladorDelEnvio = (e) => {
         e.preventDefault();
         agregarBarber(barber_name, phone_number);
@@ -98,9 +102,9 @@ export default function ListBarbers() {
                                 </thead>
                                 {Array.isArray(posts) ? (
                                     posts.map(post => {
-                                        if (6 == post.BarbershopId) {
+                                        if (1 == post.BarbershopId) {
                                             return (
-                                                <tbody key={post.BarbershopId} className="bg-white">
+                                                <tbody key={post.id} className="bg-white">
                                                     <tr>
                                                         <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                                             <div className="flex items-center">
