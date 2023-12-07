@@ -11,10 +11,11 @@ export default function ListBarbers() {
     const [barber_name, setBarberName] = useState("");
     const [phone_number, setPhone] = useState("");
     const [BarbershopId, setBarbershopId] = useState("");
-
-
     const [posts, setPosts] = useState([]);
     const [cargar, setCargar] = useState(true);
+    const [cargar1, setCargar1] = useState(true);
+    const [otherData, setOtherData] = useState([]);
+
 
     useEffect(() => {
         const cargarPost = async () => {
@@ -28,6 +29,29 @@ export default function ListBarbers() {
             setCargar(false);
         }
     }, [cargar]);
+
+    
+    useEffect(() => {
+        const fetchOtherData = async () => {
+            try {
+                const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbershops/1");
+                if (response.ok) {
+                    const data = await response.json();
+                    setOtherData(data.data);
+                    if (cargar1) {
+                        fetchOtherData();
+                        setCargar1(false);
+                    }
+                } else {
+                    throw new Error("Error al obtener datos de la otra API");
+                }
+            } catch (error) {
+                console.error("Error al cargar datos de la otra API:", error);
+            }
+        };
+        fetchOtherData();
+    }, []); 
+    
 
     const borrarbarber = async (id) => {
         let response = await fetch(`https://adso-lookstyle.onrender.com/api/v1/barbers/${id}`, {
@@ -79,7 +103,7 @@ export default function ListBarbers() {
                 <a href="#"></a>
                 <h2 className="text-3xl font-semibold text-gray-800 md:text-4xl">Look<span className="text-indigo-600">Style</span></h2>
             </div>
-            <h2 className="text-2xl font-semibold text-center mb-4">Prueba</h2>
+            <h2 className="text-2xl font-semibold text-center mb-4">{otherData.barbershop_name}</h2>
           
             <div className="mb-4">
 

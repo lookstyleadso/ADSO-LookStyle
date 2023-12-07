@@ -70,8 +70,8 @@ export default function ListBarbers() {
                                     onChange={(e) => setPhone(e.target.value)} />
                             </div>
                             <div className="w-full">
-                                <label htmlFor="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre Barberia</label>
-                                <input  type="text" name="BarbershopId" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Nombre de la barberia" value={BarbershopId}
+                                <label htmlFor="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id Barberia</label>
+                                <input  type="text" name="BarbershopId" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Id de la barberia" value={BarbershopId}
                                     onChange={(e) => setBarbershopId(e.target.value)} />
                                     {/* value={posts.barbershop_name} */}
                             </div>
