@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import Image from 'next/image'
-import Support from './support/Support'
-import Perfil from './User/Perfil'
-export default function Home() {
-  return (
-    <div>
-       <Support/>
-        <Perfil/>
-    </div>
-
-  )
-=======
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/homeComps/Hero";
 import Services from "@/components/homeComps/Services";
@@ -34,5 +21,4 @@ export default function Home() {
       <Footer />
     </>
   );
->>>>>>> feature/FRONT004
 }

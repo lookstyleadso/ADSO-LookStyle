@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-<<<<<<< HEAD
-const nextConfig = {}
-
-module.exports = nextConfig
-=======
 const nextConfig = {};
 
 module.exports = nextConfig;
@@ -18,4 +13,3 @@ module.exports = {
     ],
   },
 };
->>>>>>> feature/FRONT004
