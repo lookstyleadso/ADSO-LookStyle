@@ -18,7 +18,7 @@ export default function ListBarbers() {
 
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/");
+            const response = await fetch("http://localhost:3006/api/v1/barbers/");
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);
@@ -88,7 +88,7 @@ export default function ListBarbers() {
                 </div>
             </div>
             <div className="flex flex-col">
-                <form onSubmit={controladorDelEnvio} >
+            
                     <div className="overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                         <div className="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
                             <table className="min-w-full">
@@ -160,7 +160,7 @@ export default function ListBarbers() {
                             </div>
                         </div>
                     </div>
-                </form>
+                
             </div>
         </div>
 

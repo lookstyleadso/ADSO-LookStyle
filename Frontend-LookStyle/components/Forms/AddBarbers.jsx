@@ -6,15 +6,18 @@ import { useState, useEffect } from "react";
 export default function ListBarbers() {
     const [posts, setPosts] = useState([]);
     const [cargar, setCargar] = useState(true);
+    const [phone_number, setPhone] = useState("");
+    const [barber_name, setName] = useState("");
+    const [BarbershopId, setBarbershopId] = useState("");
 
 
-    
+
 
 
 
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers");
+            const response = await fetch("http://localhost:3006/api/v1/barbers/");
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);
@@ -26,13 +29,13 @@ export default function ListBarbers() {
     }, [cargar]);
 
     const agregarBarber = async (barber_name, phone_number, BarbershopId) => {
-        let response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers/  ", {
+        let response = await fetch("http://localhost:3006/api/v1/barbers/  ", {
             method: "POST",
             body: JSON.stringify({
                 barber_name: barber_name,
                 phone_number: phone_number,
                 BarbershopId: BarbershopId,
-               
+
 
             }),
             headers: {
@@ -45,7 +48,8 @@ export default function ListBarbers() {
 
     const controladorDelEnvio = (e) => {
         e.preventDefault();
-        agregarBarber(barber_name, phone_number);
+        agregarBarber(barber_name, phone_number, BarbershopId);
+        alert('Registro exitoso');
     };
 
     return (
@@ -53,19 +57,23 @@ export default function ListBarbers() {
             <section className="bg-white dark:bg-gray-900">
                 <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
                     <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Agrega Barberos</h2>
-                   <form onSubmit={controladorDelEnvio}>
+                    <form onSubmit={controladorDelEnvio}>
                         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                             <div className="sm:col-span-2">
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre Completo</label>
-                                <input type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Nombre Del Barbero" />
+                                <input type="text" name="barber_name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Nombre Del Barbero" value={barber_name}
+                                    onChange={(e) => setName(e.target.value)} />
                             </div>
                             <div className="w-full">
                                 <label htmlFor="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefono</label>
-                                <input type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese Telefono Barbero" />
+                                <input type="text" name="phone_number" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingrese Telefono Barbero" value={phone_number}
+                                    onChange={(e) => setPhone(e.target.value)} />
                             </div>
                             <div className="w-full">
                                 <label htmlFor="brand" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre Barberia</label>
-                                <input value={posts.barbershop_name} type="text" name="brand" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Nombre de la barberia" readOnly />
+                                <input  type="text" name="BarbershopId" id="brand" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Ingresa Nombre de la barberia" value={BarbershopId}
+                                    onChange={(e) => setBarbershopId(e.target.value)} />
+                                    {/* value={posts.barbershop_name} */}
                             </div>
                             {/* <div>
                                 <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Barberias</label>
@@ -77,7 +85,7 @@ export default function ListBarbers() {
                                     <option value="PH">Phones</option>
                                 </select>
                             </div> */}
-                            
+
                             {/* <div className="sm:col-span-2">
                                 <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                                 <textarea id="description" rows="8" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Agrega Informacion Del Barbero"></textarea>
@@ -89,6 +97,9 @@ export default function ListBarbers() {
                     </form>
                 </div>
             </section>
+            <div className="flex justify-end">
+                    <Link href="/auth/listBarbers" className="px-4 py-2 rounded-md bg-sky-500 text-sky-100 hover:bg-sky-600">Regresar</Link>
+                </div>
         </div>
     );
 }
