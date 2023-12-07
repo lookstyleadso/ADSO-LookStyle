@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+=======
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+>>>>>>> feature/FRONT004
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -25,3 +31,137 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+=======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+@layer utilities {
+  .btn_primary {
+    @apply bg-primarycolor-pc px-8 py-4 text-white transition-all hover:bg-white hover:text-darkcolor-dc;
+  }
+
+  .btn_primary_dark {
+    @apply bg-darkcolor-dc px-8 py-4 text-white transition-all hover:bg-primarycolor-pc hover:text-white;
+  }
+
+  .btn_primary_gradient {
+    @apply bg-gradient-to-r from-secundarycolor-sc to-primarycolor-pc px-8 py-4 text-white transition-all hover:from-primarycolor-pc hover:to-secundarycolor-sc hover:text-white;
+  }
+
+  .btn_primary_gradient_big {
+    @apply bg-gradient-to-r from-secundarycolor-sc to-primarycolor-pc px-8 py-4 w-4/5 text-white transition-all hover:from-primarycolor-pc hover:to-secundarycolor-sc hover:text-white;
+  }
+
+  .btn_tertiary {
+    @apply bg-tertiarycolor-tc px-8 py-4 text-white transition-all hover:bg-darkcolor-dc;
+  }
+
+  .max-container {
+    /* @apply mx-auto max-w-[1440px]; */
+    @apply mx-auto w-[100%];
+  }
+
+  .padding-container {
+    @apply px-6 lg:px-20 3xl:px-20;
+  }
+
+  .padding-container-nav {
+    @apply px-3 lg:px-11 3xl:px-11;
+  }
+
+  .padding-container-guide {
+    @apply pb-24 pt-10 2xl:px-8 lg:grid-cols-2 lg:px-20 md:px-8 sm:px-8 xm:px-8 xd:px-8;
+  }
+
+  .padding-container-support {
+    @apply px-10 lg:px-52 3xl:px-52;
+  }
+
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
+  .flexBetween {
+    @apply flex items-center justify-between;
+  }
+
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+
+  /* FONTS */
+  .regular-40 {
+    @apply text-[40px] font-[400] leading-[120%];
+  }
+
+  .regular-20 {
+    @apply text-[20px] font-[400];
+  }
+
+  .regular-18 {
+    @apply text-[18px] font-[400];
+  }
+
+  .regular-16 {
+    @apply text-[16px] font-[400];
+  }
+
+  .regular-14 {
+    @apply text-[14px] font-[400];
+  }
+
+  .medium-14 {
+    @apply text-[14px] font-[600];
+  }
+
+  .bold-40 {
+    @apply text-[40px] font-[700] leading-[120%];
+  }
+
+  .bold-20 {
+    @apply text-[20px] font-[700];
+  }
+
+  .bold-18 {
+    @apply text-[18px] font-[700];
+  }
+
+  .bold-16 {
+    @apply text-[16px] font-[700];
+  }
+
+  /* Services */
+  .services-phone {
+    @apply absolute top-[2%] z-10 ms-10 hidden max-w-[1500px] md:-left-2 lg:flex 3xl:left-20;
+  }
+
+  /* Guide */
+  .guide-phone {
+    @apply z-10 ms-24 hidden max-w-[1800px] md:-right-2 lg:flex 3xl:right-20;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+>>>>>>> feature/FRONT004
