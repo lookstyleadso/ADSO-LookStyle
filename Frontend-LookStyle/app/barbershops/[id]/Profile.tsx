@@ -33,7 +33,7 @@ const Profile = () => {
     fetchData();
   }, [id]);
 
-  console.log(barbershop)
+  console.log(barbershop);
 
   if (!barbershop) {
     return (
@@ -165,7 +165,7 @@ const Profile = () => {
                 <p>.</p>
 
                 {barbershop.state.toUpperCase() === "ACTIVO" ||
-                  barbershop.state.toUpperCase() === "ABIERTO" ? (
+                barbershop.state.toUpperCase() === "ABIERTO" ? (
                   <div className="mt-1 flex items-center gap-x-1.5">
                     <Image
                       src="/bx-timeopen.svg"
@@ -190,7 +190,7 @@ const Profile = () => {
                 <div className="flex justify-between items-center "></div>
                 <div className="text-xl text-gray-100 font-medium leading-8 mt-5">
                   {barbershop.state.toUpperCase() === "ACTIVO" ||
-                    barbershop.state.toUpperCase() === "ABIERTO" ? (
+                  barbershop.state.toUpperCase() === "ABIERTO" ? (
                     <div>
                       <p>Se encuentra abierta</p>
                     </div>
@@ -253,6 +253,7 @@ const Profile = () => {
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
             {/* Calendario */}
             <div className="flex flex-col p-4 relative items-center justify-center bg-darkcolor-dc border border-darkcolor-dc shadow-lg rounded-2xl">
+              <Appointment />
               {/* <div className="">
                 <div className="text-center p-5 flex-auto justify-center">
                   <svg
