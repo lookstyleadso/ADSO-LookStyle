@@ -7,9 +7,14 @@ export default function ListBarbers() {
     const [posts, setPosts] = useState([]);
     const [cargar, setCargar] = useState(true);
 
+
+    
+
+
+
     useEffect(() => {
         const cargarPost = async () => {
-            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbershops/1");
+            const response = await fetch("https://adso-lookstyle.onrender.com/api/v1/barbers");
             const { data } = await response.json();
             const desestructura = data;
             setPosts(desestructura);

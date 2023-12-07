@@ -64,7 +64,7 @@ export default function ListBarbers() {
 */
     const controladorDelEnvio = (e) => {
         e.preventDefault();
-        agregarBarber(barber_name, phone_number);
+        agregarBarber(barber_name, phone_number,BarbershopId);
     };
 
 
@@ -79,6 +79,8 @@ export default function ListBarbers() {
                 <a href="#"></a>
                 <h2 className="text-3xl font-semibold text-gray-800 md:text-4xl">Look<span className="text-indigo-600">Style</span></h2>
             </div>
+            <h2 className="text-2xl font-semibold text-center mb-4">Prueba</h2>
+          
             <div className="mb-4">
 
                 <div className="flex justify-end">
