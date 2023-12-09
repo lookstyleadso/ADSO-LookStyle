@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import Profile from "./Profile";
 import NavBar from "@/components/NavBar";
 

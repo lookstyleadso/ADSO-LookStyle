@@ -1,14 +1,14 @@
 "use client";
 import axios from "axios";
-import { useState, useEffect } from "react";
-//import axios from "axios";
+import { useState } from "react";
+
 
 export default function RegisterBarbershop() {
   const [role, setRole] = useState(201)
   const [barbershop_name, setBarberName] = useState("")
   const [charge_name, setCharge_name] = useState("")
   const [email, setEmail] = useState("")
-  const [password, setPasswor] = useState("")
+  const [password, setPassword] = useState("")
   const [phone_number, setPhone] = useState("")
   const [location, setLocation] = useState("")
   const [information, setInfo] = useState("")
@@ -19,9 +19,7 @@ export default function RegisterBarbershop() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-
     const formData = new FormData()
-
     formData.append('role', role)
     formData.append('barbershop_name', barbershop_name)
     formData.append('charge_name', charge_name)
@@ -30,7 +28,7 @@ export default function RegisterBarbershop() {
     formData.append('phone_number', phone_number)
     formData.append('location', location)
     formData.append('information', information)
-    formData.append('social_networks', social_networks.split(', '))
+    formData.append('social_networks', social_networks.split(","))
     formData.append('state', state)
     formData.append('profile_photo', profile_photo)
 
@@ -142,7 +140,7 @@ export default function RegisterBarbershop() {
                     required
                     placeholder="Ingresa una contraseña segura"
                     value={password}
-                    onChange={(e) => setPasswor(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
 
