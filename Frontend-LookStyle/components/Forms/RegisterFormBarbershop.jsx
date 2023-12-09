@@ -41,17 +41,17 @@ export default function RegisterBarbershop() {
           'Content-Type': 'multipart/form-data'
         }
       })
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.error('Error to send the form', error)
     }
   }
 
-  return ( 
+  return (
     <div>
-      <div class="bg-blue-200 dark:bg-gray-800 transition-colors duration-300">
-        <div class="container mx-auto p-40">
-          <div class="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
+      <div className="bg-blue-200 dark:bg-gray-800 transition-colors duration-300">
+        <div className="container mx-auto p-40">
+          <div className="bg-white dark:bg-gray-700 shadow rounded-lg p-6">
             <div className="flex justify-center mb-6">
               <span className="inline-block bg-gray-200 rounded-full p-3">
                 <svg
@@ -75,7 +75,7 @@ export default function RegisterBarbershop() {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <div class="grid gap-6 mb-6 lg:grid-cols-2">
+              <div className="grid gap-6 mb-6 lg:grid-cols-2">
                 <div className="mb-4">
                   <label
                     htmlFor="Name"
@@ -119,6 +119,7 @@ export default function RegisterBarbershop() {
                   <input
                     type="email"
                     name="email"
+                    autoComplete="off"
                     className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                     placeholder="barber@gmail.com"
                     value={email}
@@ -136,6 +137,7 @@ export default function RegisterBarbershop() {
                   <input
                     type="password"
                     name="password"
+                    autoComplete="off"
                     className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                     required
                     placeholder="Ingresa una contraseña segura"
@@ -227,7 +229,6 @@ export default function RegisterBarbershop() {
                     name="profile_photo"
                     className="form-input w-full px-4 py-2 border rounded-lg text-gray-700 focus:ring-blue-500"
                     placeholder="Foto de perfil"
-                    value={profile_photo}
                     onChange={(e) => setProfilePhoto(e.target.files[0])}
                   />
                 </div>

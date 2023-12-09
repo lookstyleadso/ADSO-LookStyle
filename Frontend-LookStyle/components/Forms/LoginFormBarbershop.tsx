@@ -39,6 +39,7 @@ export default function LoginFormBarbershop() {
       const data = response.data
       Cookies.set('token', data.token, { sameSite: 'None', secure: true })
       Cookies.set('id', data.id, { sameSite: 'None', secure: true })
+      Cookies.set('role', data.role, { sameSite: 'None', secure: true })
 
       if (response.status === 200) {
         router.push('/dashboard')

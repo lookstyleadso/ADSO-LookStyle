@@ -47,6 +47,7 @@ const NavBar = () => {
           }`}
         >
           {NAV_LINKS.map((link) => (
+            
             <Link
               href={link.href}
               key={link.key}
