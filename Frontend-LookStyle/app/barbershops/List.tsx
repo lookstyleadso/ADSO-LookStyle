@@ -19,7 +19,7 @@ const List = () => {
   const [data_barbershop, setBarbershop] = useState<BarbershopProps[]>([]);
   const [Loading, setLoading] = useState("Cargando");
   const [search, setSearch] = useState("");
-  const [selectedBarbershop, setSelectedBarbershop] =
+  const [selectedBarbershop, setSelectedBarbershop] =     
     useState<BarbershopProps | null>(null);
   const [open, setOpen] = useState(false);
 

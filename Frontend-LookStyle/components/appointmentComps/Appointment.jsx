@@ -88,17 +88,14 @@ export default function Appointment() {
                 }
             );
 
-            if (response.ok) {
-                alert(`Cita reservada para el día ${selectedDay} a las ${selectedHour} `);
-                const updatedCitasResponse = await fetch(
-                    'https://adso-lookstyle.onrender.com/api/v1/appointments'
-                );
-                const updatedCitasData = await updatedCitasResponse.json();
-                setCitas(updatedCitasData);
-                // window.location.href = '/barbershops'
-            } else {
-                alert('Error al reservar la cita. Inténtalo nuevamente.');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
+
+            const data = await response.json();
+            alert(`Cita reservada para el día ${selectedDay} a las ${selectedHour} `);
+            setCitas(data);
+            // window.location.href = '/barbershops'
         } catch (error) {
             console.error('Error al reservar la cita', error);
         }
@@ -108,7 +105,6 @@ export default function Appointment() {
         e.preventDefault();
         handleAgendarCita();
     };
-
     const todasLasHoras = [
         '07:00:00',
         '07:40:00',
