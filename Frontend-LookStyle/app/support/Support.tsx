@@ -6,6 +6,7 @@ import { RiMessage3Line } from "react-icons/ri";
 import { GrPhone } from "react-icons/gr";
 import Button from "@/components/Button";
 import Link from "next/link";
+import BtnWhatsapp from "@/components/BtnWhatsapp";
 
 const Support = () => {
   return (
@@ -21,8 +22,8 @@ const Support = () => {
         </p>
       </div>
 
-      <div className="mt-10 border rounded-2xl shadow-lg bg-gree ">
-        <div className="flex">
+      <div className="mt-10 border rounded-2xl shadow-lg bg-gree">
+        <div className="flex-none sm:flex">
           <div className="p-8">
             <div className="flex flex-row gap-2 items-center pb-5">
               <RiMessage3Line className="w-10 h-10 mr-2 fill-current" />
@@ -53,7 +54,10 @@ const Support = () => {
         </div>
         <div className="flex flex-col items-center justify-center p-4">
           <div>
-            <Link href="/" className="mt-4 w-[95%] h-9 text-primarycolor-pc hover:underline">
+            <Link
+              href="/"
+              className="mt-4 w-[95%] h-9 text-primarycolor-pc hover:underline"
+            >
               Continuar sin iniciar sesión
             </Link>
           </div>
@@ -73,6 +77,7 @@ const Support = () => {
           </Accordion>
         </div>
       </div>
+      <BtnWhatsapp />
     </div>
   );
 };
