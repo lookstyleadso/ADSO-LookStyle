@@ -1,13 +1,24 @@
 "use client";
+import React from "react";
 import { NAV_LINKS } from "@/constants";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
-
+import { Modal, ModalContent, useDisclosure } from "@nextui-org/react";
+import ModalAuth from "./ModalAuth";
 
 const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [size, setSize] = React.useState("md");
+  const [backdrop, setBackdrop] = React.useState("opaque");
+
+  const handleOpen = (size: string, backdrop: string) => {
+    setSize(size);
+    setBackdrop(backdrop)
+    onOpen();
+  };
 
   return (
     <nav className="max-container padding-container-nav fixed shadow-lg z-30 bg-darkcolor-dc">
@@ -47,7 +58,6 @@ const NavBar = () => {
           }`}
         >
           {NAV_LINKS.map((link) => (
-            
             <Link
               href={link.href}
               key={link.key}
@@ -56,6 +66,10 @@ const NavBar = () => {
               {link.label}
             </Link>
           ))}
+
+          <li className="regular-16 md:my-0 my-7 text-white flexCenter cursor-pointer transition-all hover:font-semibold hover:text-primarycolor-pc">
+            <a onClick={() => handleOpen("2xl", "blur")}>Iniciar Sesión</a>
+          </li>
         </ul>
 
         <div className="md:flexCenter hidden">
@@ -68,6 +82,12 @@ const NavBar = () => {
           </Link>
         </div>
       </div>
+
+      <Modal backdrop={"blur"} size={"2xl"} isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          {(onClose) => <ModalAuth onClose={onClose} />}
+        </ModalContent>
+      </Modal>
     </nav>
   );
 };

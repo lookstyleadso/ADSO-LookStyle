@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Link from "next/link";
 import * as HiIcons from "react-icons/hi";
@@ -6,45 +6,45 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Cookies from "js-cookie";
-
-
-
+import Button from "../Button";
+import Image from "next/image";
 
 export default function LoginFormBarbershop() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const router = useRouter()
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleChangeEmail = (e: any) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
   const handleChangePassword = (e: any) => {
-    setPassword(e.target.value)
-  }
+    setPassword(e.target.value);
+  };
   const handleSubmit = async (e: any) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const response = await axios.post(
-        'https://adso-lookstyle.onrender.com/api/v1/auth/authenticateB', {
-        email: email,
-        password: password
-      }, {
-        headers: {
-          'Content-Type': 'application/json'
+        "https://adso-lookstyle.onrender.com/api/v1/auth/authenticateB",
+        {
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      }
-      )
-      const data = response.data
-      Cookies.set('token', data.token, { sameSite: 'None', secure: true })
-      Cookies.set('id', data.id, { sameSite: 'None', secure: true })
-      Cookies.set('role', data.role, { sameSite: 'None', secure: true })
+      );
+      const data = response.data;
+      Cookies.set("token", data.token, { sameSite: "None", secure: true });
+      Cookies.set("id", data.id, { sameSite: "None", secure: true });
+      Cookies.set("role", data.role, { sameSite: "None", secure: true });
 
       if (response.status === 200) {
-        router.push('/dashboard')
+        router.push("/dashboard");
       } else {
-        router.refresh()
+        router.refresh();
       }
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
@@ -62,70 +62,88 @@ export default function LoginFormBarbershop() {
         console.log("Error desconocido:", error);
       }
     }
-  }
-
+  };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-graycolor-gc">
-      <div className="w-full md:w-3/4 lg:w-1/2 xl:w-1/3">
-        <div className="w-full max-w-md md:max-w-lg xl:max-w-2xl px-6 md:px-8 py-8 rounded-3xl bg-white border-2 border-gray-100">
-          <div className="flex">
-            <h1 className="text-3xl md:text-5xl font-semibold text-center mb-4">
-              Bienvenido a LookStyle
-            </h1>
-            <Link className="text-lg" href={"/"}>
-              <HiIcons.HiChevronRight />
-            </Link>
-          </div>
-          <p className="text-sm md:text-lg text-gray-500 text-center mb-6">
-            Bienvenido, Por favor ingresa tus datos.
-          </p>
-
-          <form onSubmit={handleSubmit}>
-            <div className="mt-6">
-              <div className="mb-4">
-                <label className="text-base md:text-lg font-medium">
-                  Correo electronico
+    <div className="flex flex-col justify-center items-center h-screen bg-white">
+      <div className="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
+        <div className="flex items-center justify-center w-full lg:p-12">
+          <div className="flex items-center xl:p-10">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col w-full h-[560px] py-6 px-16 text-center bg-white sm:shadow-xl sm:border rounded-2xl"
+            >
+              <div className="flex items-center justify-center w-full pb-4">
+                <Image
+                  className="h-16 w-20"
+                  src="/logolookstyle.svg"
+                  alt="Google"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <h4 className="mb-3 text-3xl font-extrabold text-dark-grey-900">
+                ¡Bienvenido de nuevo!
+              </h4>
+              <p>Inicio de sesión para cuneta de barberia.</p>
+              <div className="flex flex-col py-6">
+                <label className="mb-2 text-sm text-start text-grey-900">
+                  Correo
                 </label>
                 <input
-                  className="w-full border-2 border-gray-100 rounded-xl p-3 md:p-4 bg-transparent"
-                  placeholder="Ingresar Correo"
                   type="email"
                   value={email}
                   onChange={handleChangeEmail}
+                  placeholder="barbershopaccount@gmail.com"
+                  required
+                  className="flex items-center w-full px-5 py-3 mr-2 text-sm font-medium border outline-1 outline-primarycolor-pc focus:bg-grey-400 mb-3 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
                 />
-              </div>
-              <div className="mb-4">
-                <label className="text-base md:text-lg font-medium">
+                <label className="mb-2 text-sm text-start text-grey-900">
                   Contraseña
                 </label>
                 <input
-                  className="w-full border-2 border-gray-100 rounded-xl p-3 md:p-4 bg-transparent"
-                  placeholder="Ingresar Contraseña"
-                  type="text"
+                  type="password"
                   value={password}
                   onChange={handleChangePassword}
+                  placeholder="*************"
+                  required
+                  className="flex items-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium border outline-1 outline-primarycolor-pc focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
                 />
+
+                <div className="flex flex-row justify-between mb-5">
+                  <label className="relative inline-flex items-center mr-3 cursor-pointer select-none">
+                    <input
+                      className="dark:border-white-400/20 dark:scale-100 transition-all duration-500 ease-in-out dark:hover:scale-110 dark:checked:scale-100 cursor-pointer w-3 h-3"
+                      type="checkbox"
+                    />
+                    <span className="ml-3 text-sm font-normal text-grey-900">
+                      Recordarme
+                    </span>
+                  </label>
+
+                  <Link href="/" className="text-sm font-medium">
+                    ¿Olvidó la contraseña?
+                  </Link>
+                </div>
               </div>
-              <div className="mt-6 flex justify-center items-center">
-                <p className="text-base">¿No tienes cuenta? Regístrate</p>
-                <button className="ml-2 text-base text-violet-500">
-                  Registrarse
-                </button>
-              </div>
-              <div className="mt-6">
-                <button
-                  type="submit"
-                  className="w-full py-3 md:py-4 btn_primary_gradient rounded-xl text-white font-semibold text-lg"
+              <Button
+                type="submit"
+                title="Inicar Sesión"
+                variant="btn_primary_gradient"
+              />
+              <p className="text-sm leading-relaxed text-grey-900 mt-10">
+                ¿No tienes cuenta?{" "}
+                <Link
+                  href="/auth/register"
+                  className="font-bold text-grey-700 hover:underline"
                 >
-                  Iniciar Sesión
-                </button>
-              </div>
-            </div>
-          </form>
+                  Registrarme
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   );
-
 }
