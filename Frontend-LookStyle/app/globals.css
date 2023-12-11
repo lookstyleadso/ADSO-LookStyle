@@ -123,6 +123,9 @@ body {
     @apply z-10 ms-24 hidden max-w-[1800px] md:-right-2 lg:flex 3xl:right-20;
   }
 }
+.navHover {
+  @apply bg-gray-500 h-14 w-full flex justify-center rounded-md hover:bg-black
+}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
