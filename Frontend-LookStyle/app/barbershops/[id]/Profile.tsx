@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Spinner } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
+import Appointment from "@/components/appointmentComps/Appointment";
 
 
 type BarbershopProps = {
@@ -253,7 +254,7 @@ const Profile = () => {
           <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
 
             <div className="flex flex-col p-4 relative items-center justify-center bg-darkcolor-dc border border-darkcolor-dc shadow-lg rounded-2xl">
-              {/* <Appointment /> */}
+              <Appointment />
               
             </div>
 

@@ -1,23 +1,137 @@
 "use client"
-import axios from "axios"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react';
+import {
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Button,
+    useDisclosure,
+} from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
 
 export default function Appointment() {
-    const [data, setData] = useState(null);
+    const router = useRouter();
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const [selectedTipoCita, setSelectedTipoCita] = useState('');
+    const [userInfo, setUserInfo] = useState({});
+    const [citas, setCitas] = useState([]);
+    const [disponibilidad, setDisponibilidad] = useState([]);
+    const [selectedDay, setSelectedDay] = useState('');
+    const [selectedHour, setSelectedHour] = useState('');
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get('https://adso-lookstyle.onrender.com/api/v1/barbershops/14');
-                console.log(response.data.data);
-                setData(response.data.data);
-            } catch (error) {
-                console.error('Error fetching data', error);
+
+    const handleDayChange = async (day) => {
+        setSelectedDay(day);
+
+        try {
+            const response = await fetch(
+                'https://adso-lookstyle.onrender.com/api/v1/appointments'
+            );
+            const responseData = await response.json();
+
+            if (!Array.isArray(responseData.data)) {
+                console.error('La respuesta de la API no tiene un array de datos:', responseData);
+                return;
             }
-        };
 
-        fetchData();
-    }, []);
+            const citasDelDia = responseData.data.filter((cita) => {
+                const citaFecha = new Date(cita.appointment_date)
+                    .toISOString()
+                    .split('T')[0];
+                const diaSeleccionado = new Date(day).toISOString().split('T')[0];
+                return citaFecha === diaSeleccionado;
+            });
+
+            const horasOcupadas = citasDelDia.map((cita) => cita.appointment_hour);
+            const horasDisponibles = todasLasHoras.filter(
+                (appointment_hour) => !horasOcupadas.includes(appointment_hour)
+            );
+            setDisponibilidad(horasDisponibles);
+        } catch (error) {
+            console.error('Error al obtener las citas', error);
+        }
+    };
+
+    const handleHourSelection = (hour) => {
+        setSelectedHour(hour);
+    };
+
+    const handleAgendarCita = async () => {
+        const combinedDateTime = `${selectedDay} ${selectedHour}`;
+        console.log(
+            'Valores antes de la solicitud POST:',
+            desc,
+            selectedDay,
+            selectedHour,
+            prec,
+            userInfo.id,
+            combinedDateTime
+        );
+        try {
+            const response = await fetch(
+                'https://adso-lookstyle.onrender.com/api/v1/appointments',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        TipoCita: selectedTipoCita,
+                        Descripcion: desc,
+                        FechaCita: combinedDateTime,
+                        HoraCita: selectedHour,
+                        ValorCita: prec,
+                        UserId: userInfo.id,
+                    }),
+                }
+            );
+
+            if (response.ok) {
+                alert(`Cita reservada para el día ${selectedDay} a las ${selectedHour} `);
+                const updatedCitasResponse = await fetch(
+                    'https://adso-lookstyle.onrender.com/api/v1/appointments'
+                );
+                const updatedCitasData = await updatedCitasResponse.json();
+                setCitas(updatedCitasData);
+                // window.location.href = '/barbershops'
+            } else {
+                alert('Error al reservar la cita. Inténtalo nuevamente.');
+            }
+        } catch (error) {
+            console.error('Error al reservar la cita', error);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleAgendarCita();
+    };
+
+    const todasLasHoras = [
+        '07:00:00',
+        '07:40:00',
+        '08:20:00',
+        '09:00:00',
+        '09:40:00',
+        '10:20:00',
+        '11:00:00',
+        '11:40:00',
+        '12:20:00',
+        '13:00:00',
+        '13:40:00',
+        '14:20:00',
+        '15:00:00',
+        '15:40:00',
+        '16:20:00',
+        '17:00:00',
+        '17:40:00',
+        '18:20:00',
+        '19:00:00',
+        '19:40:00',
+        '20:20:00',
+    ];
 
     return (
         <>
@@ -42,7 +156,7 @@ export default function Appointment() {
                                         <input
                                             type='date'
                                             placeholder='Ingresa la descripción'
-                                            className='input-field w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-yellow-300 transition-all duration-300'
+                                            className='input-field w-full py-2 px-4 border border-gray-300 rounded-md focus:outline-none focus:border-blue-300 transition-all duration-300'
                                             onChange={(e) => handleDayChange(e.target.value)}
                                         />
                                     </div>
