@@ -1,9 +1,11 @@
 "use client";
 import axios from "axios";
 import { useState } from "react";
+import Router from "next/navigation";
 
 
 export default function RegisterBarbershop() {
+  const router = Router();
   const [role, setRole] = useState(201)
   const [barbershop_name, setBarberName] = useState("")
   const [charge_name, setCharge_name] = useState("")
@@ -40,6 +42,8 @@ export default function RegisterBarbershop() {
         }
       })
       // console.log(data)
+      router.push("/auth/loginBarbershop");
+
     } catch (error) {
       console.error('Error to send the form', error)
     }
