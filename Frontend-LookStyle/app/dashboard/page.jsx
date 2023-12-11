@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function PageDashboard() {
         return (
-                <div>
+                <div className='rounded-xl'> 
                         new home page
                 </div>
         )

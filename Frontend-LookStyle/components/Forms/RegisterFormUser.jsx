@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function RegisterFormUser() {
 
-  const [role, setRole] = useState(201)
+  const [role, setRole] = useState(101)
   const [name, setName] = useState("")
   const [last_name, setLastName] = useState("")
   const [email, setEmail] = useState("")
