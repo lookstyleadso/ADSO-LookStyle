@@ -18,9 +18,9 @@ const Guide = () => {
       <div className="w-full 2xl:px-20">
         <div className="mx-auto grid grid-cols-1 items-center gap-x-10 padding-container-guide">
           <div>
-            <dl className="mt-2 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+            <dl className="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-y-8 lg:gap-x-8">
               {GUIDE_INFO.map((guides) => (
-                <div key={guides.id}>
+                <div key={guides.id} className="px-5 py-1 rounded-2xl border hover:bg-hover-hv">
                   <dt className="uppercase bold-18 text-primarycolor-pc">
                     {guides.name}
                   </dt>

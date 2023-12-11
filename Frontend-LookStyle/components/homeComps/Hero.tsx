@@ -14,7 +14,7 @@ const Hero = () => {
         </p>
         <div>
           <Link
-            href="/auth/register"
+            href="/auth/registerUser"
             className="font-medium inline-flex items-center mt-4 px-6 py-2 rounded-2xl border-2 border-darkcolor-dc transition ease-in-out hover:scale-110 hover:border-primarycolor-pc"
           >
             Registrarme

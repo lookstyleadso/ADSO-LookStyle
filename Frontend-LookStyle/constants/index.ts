@@ -5,7 +5,6 @@ export const NAV_LINKS = [
   { href: "/contest", key: "contest", label: "Concurso" },
   { href: "/barbershops", key: "barbershops", label: "Barberias" },
   { href: "/aboutus", key: "aboutus", label: "Sobre nosotros" },
-  { href: "/auth/authPage", key: "login", label: "Inciar Sesión" },
 ];
 
 // SERVICES SECTION
@@ -40,63 +39,51 @@ export const SERVICES = [
 export const GUIDE_INFO = [
   {
     id: 1,
-    name: "Name",
+    name: "Como iniciar",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Si no tienes cuenta puedes crear una ya sea personal o para administrar tu barberia.",
   },
   {
     id: 2,
-    name: "Name",
+    name: "Como registrarse",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Para crear una cuenta ve al apartado de regsitro y registra los datos requeridos.",
   },
   {
     id: 3,
-    name: "Name",
+    name: "Buscar barberías",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Ingresa en la sección de barberias y podrar ver y buscar cada una de estas.",
   },
   {
     id: 4,
-    name: "Name",
+    name: "Como agendar",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Para agendar tu turno escoge la barberia que mas te guste y mira la disponibilidad",
   },
   {
     id: 5,
-    name: "Name",
+    name: "Contactar barberias",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Si deseas contactar a una barberia en especifico en su perfil veras sus numeros y redes sociales.",
   },
   {
     id: 6,
-    name: "Name",
+    name: "Servicios barberias",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "En cada una de las barberias podras ver los servicos que prestan y asi decidir tu mejor estilo.",
   },
   {
     id: 7,
-    name: "Name",
+    name: "Fotografias",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Si quieres ver las mejores fotografias dirigite a la seccion de Concurso.",
   },
   {
     id: 8,
-    name: "Name",
+    name: "Algun problema",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
-  },
-  {
-    id: 9,
-    name: "Name",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
-  },
-  {
-    id: 10,
-    name: "Name",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, dolores.",
+      "Si presentas algun problema con la pagina, dirigite a la seccion de soporte y no dudes en contactarnos.",
   },
 ];
 

@@ -304,7 +304,6 @@ const Profile = () => {
                       $1800
                       <span className="text-gray-600 text-sm font-normal">
                         {" "}
-                        /wk
                       </span>
                     </div>
                   </div>
